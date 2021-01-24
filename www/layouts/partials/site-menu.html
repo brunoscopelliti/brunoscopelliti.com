@@ -1,0 +1,22 @@
+<button class="menu-btn" data-js="hamburger" aria-label="Open menu">
+  <i class="hamburger" aria-hidden="true">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </i>
+</button>
+<nav class="menu">
+  <ul class="menu-links">
+    {{ $currentPage := . }}
+    {{ range .Site.Menus.main.ByWeight }}
+      <li class="{{ if $currentPage.IsMenuCurrent "main" . }}active{{ end }}">
+        <a href="{{ .URL }}">{{ .Name }}</a>
+      </li>
+    {{ end }}
+  </ul>
+</nav>
+{{ $menuController := resources.Get "js/menu.js" | js.Build (dict "minify" true "target" "es5") }}
+<script>
+  {{ $menuController.Content | safeJS }}
+</script>

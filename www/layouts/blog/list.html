@@ -1,0 +1,9 @@
+{{ define "main-content" }}
+<h1 class="page-title">Blog</h1>
+<div class="post-list">
+  {{ range .Paginator.Pages }}
+    {{- partial "post-list-entry.html" . -}}
+  {{ end }}
+</div>
+<div class="pagination">{{- template "_internal/pagination.html" . -}}</div>
+{{ end }}

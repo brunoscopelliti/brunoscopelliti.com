@@ -1,0 +1,28 @@
+{{ define "title" }}
+{{ .Site.Title }}
+{{ end }}
+
+{{ define "page-highlights" }}
+<div class="intro home-intro">
+  {{- partial "avatar.html" . -}}
+  <div class="message">
+    Hi, I am Bruno Scopelliti.
+    <br/>I am an independent software engineer.
+  </div>
+</div>
+{{ end }}
+
+{{ define "main-content" }}
+<h1 class="page-title">Blog</h1>
+<div class="post-list">
+  {{ $sectionName := .Site.Params.mainSectionName | default (slice "blog") }}
+  {{ $section := where .Site.RegularPages "Section" "in" $sectionName }}
+  {{ $postsCount := $.Param "recent_posts_number" | default 3 }}
+  {{ range (first $postsCount $section) }}
+    {{- partial "post-list-entry.html" . -}}
+  {{ end }}
+</div>
+<div class="blog-link">
+  <a href="/blog" title="Visit blog page">View all articles</a>
+</div>
+{{ end }}

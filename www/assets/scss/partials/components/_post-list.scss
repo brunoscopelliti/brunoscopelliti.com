@@ -1,0 +1,38 @@
+.post-entry {
+  margin: 36px 0;
+}
+
+.post-entry h2.post-title {
+  margin-bottom: 12px;
+}
+
+.post-entry .post-title a {
+  color: #222;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    color: $colorLinkFocus;
+  }
+}
+
+.post-entry .post-preview,
+.post-entry .post-link,
+.blog-link {
+  font-size: 18px;
+  font-weight: $weightLight;
+}
+
+.post-entry .post-link,
+.blog-link {
+  margin: 0;
+  margin-top: 8px;
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.blog-link {
+  text-align: right;
+}

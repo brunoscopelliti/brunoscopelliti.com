@@ -1,0 +1,44 @@
+body {
+  font-family: "Open Sans", sans-serif;
+
+  font-size: 16px;
+  font-weight: $weightNormal;
+  line-height: 24px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+h1.page-title {
+  font-size: 24px;
+  font-weight: $weightBold;
+  line-height: 32px;
+}
+
+h2 {
+  font-size: 20px;
+  font-weight: $weightMedium;
+  line-height: 24px;
+}
+
+@media (min-width: $widthTabletPortrait) {
+  h1.page-title {
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  h2 {
+    font-size: 24px;
+    line-height: 32px;
+  }
+}
+
+a {
+  color: $colorLink;
+
+  &:focus,
+  &:hover {
+    color: $colorLinkFocus;
+  }
+}

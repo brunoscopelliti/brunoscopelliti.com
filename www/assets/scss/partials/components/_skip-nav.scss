@@ -1,0 +1,39 @@
+#skip-nav {
+  left: -999px;
+  position: absolute;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  z-index: -1;
+  border: 0;
+  outline: none;
+  text-decoration: none;
+
+  &:focus,
+  &:active {
+    box-sizing: content-box;
+    color: #fff;
+    background-color: #000;
+    left: 50%;
+    top: auto;
+    width: 120px;
+    height: auto;
+    overflow: auto;
+    margin: 38px 0 0 -68px;
+    padding: 6px 16px;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 18px;
+    z-index: $zSkipNavigation;
+  }
+}
+
+@media (min-width: $widthTabletPortrait) {
+  #skip-nav:focus,
+  #skip-nav:active {
+    left: auto;
+    width: auto;
+    margin: 10px 0 0 10px;
+  }
+}

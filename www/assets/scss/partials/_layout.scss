@@ -1,0 +1,42 @@
+body {
+  color: #000;
+  background-color: #fafafa;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.page-content {
+  @include site-width;
+
+  flex: 1;
+
+  background: #fff;
+  margin-top: -32px;
+
+  padding: 36px 16px 48px;
+}
+
+@media (min-width: $widthTabletPortrait) {
+  .page-content {
+    padding: 64px;
+    padding-top: 96px;
+  }
+}
+
+@media (min-width: $maxWidthContent) {
+  .page-content {
+    border-radius: 8px;
+  }
+}
+
+.site-width-wrapper {
+  @include site-width;
+  padding: 0 12px;
+}
+
+@media (min-width: $widthTabletPortrait) {
+  .site-width-wrapper {
+    padding: 0 24px;
+  }
+}

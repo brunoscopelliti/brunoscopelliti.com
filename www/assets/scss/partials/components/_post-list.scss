@@ -1,5 +1,5 @@
 .post-entry {
-  margin: 36px 0;
+  margin: 36px 0 48px;
 }
 
 .post-entry h2.post-title {
@@ -8,7 +8,6 @@
 
 .post-entry .post-title a {
   color: #222;
-  text-decoration: none;
 
   &:hover,
   &:focus {
@@ -27,12 +26,28 @@
 .blog-link {
   margin: 0;
   margin-top: 8px;
-
-  a {
-    text-decoration: none;
-  }
 }
 
 .blog-link {
   text-align: right;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  .page-link {
+    color: $colorLink;
+    padding: 2px 4px;
+    transition: .25s ease-in-out;
+  }
+
+  .active .page-link {
+    color: #777;
+  }
 }

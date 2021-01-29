@@ -13,6 +13,10 @@ $gradient: linear-gradient(30deg, $gradientStart 30%, $gradientEnd 180%);
   padding-top: 36px;
 }
 
+body:not(.home) .site-header {
+  padding-bottom: 12px;
+}
+
 .site-header .site-nav {
   display: flex;
   justify-content: space-between;
@@ -30,13 +34,30 @@ $gradient: linear-gradient(30deg, $gradientStart 30%, $gradientEnd 180%);
 
   font-size: 20px;
   letter-spacing: 2px;
-  text-decoration: none;
 
   padding: 0;
 
   width: 36px;
   height: 36px;
   line-height: 36px;
+}
+
+.site-header .avatar-home-link {
+  color: #fff;
+  font-size: 20px;
+
+  .avatar-frame {
+    height: 48px;
+    width: 48px;
+
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+
+  img {
+    margin: 0;
+    width: 100%;
+  }
 }
 
 .site-header .menu-btn {
@@ -106,7 +127,6 @@ $gradient: linear-gradient(30deg, $gradientStart 30%, $gradientEnd 180%);
 
 .site-header .menu-links li a {
   color: #fff;
-  text-decoration: none;
 }
 
 @media (max-width: $widthTabletPortrait) {

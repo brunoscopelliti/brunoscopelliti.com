@@ -6,26 +6,25 @@ body {
   flex-direction: column;
 }
 
-.page-content {
+.page-main-content {
   @include site-width;
 
   flex: 1;
 
   background: #fff;
-  margin-top: -32px;
 
-  padding: 36px 16px 48px;
+  margin-top: -32px;
+  padding: 36px $sidePaddingPageContentMobile 48px;
 }
 
 @media (min-width: $widthTabletPortrait) {
-  .page-content {
-    padding: 64px;
-    padding-top: 96px;
+  .page-main-content {
+    padding: $sidePaddingPageContentTabletPortrait;
   }
 }
 
 @media (min-width: $maxWidthContent) {
-  .page-content {
+  .page-main-content {
     border-radius: 8px;
   }
 }

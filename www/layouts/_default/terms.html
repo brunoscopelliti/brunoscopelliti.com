@@ -1,0 +1,12 @@
+{{ define "main-content" }}
+<h1>Search</h1>
+<input type="search" name="query" placeholder="Enter a keyword" />
+
+<ul>
+  {{ range $taxonomyname, $taxonomy := .Site.Taxonomies.categories }}
+    <li>
+      <a href="{{ $taxonomyname | urlize }}">{{ $taxonomyname }}</a>
+    </li>
+  {{ end }}
+</ul>
+{{ end }}

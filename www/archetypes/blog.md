@@ -1,11 +1,14 @@
 ---
 draft: true
-layout: post
-date: {{ .Date }}
 title: "{{ replace .Name "-" " " | title }}"
 preview: ""
+date: {{ .Date }}
 meta_description: ""
-tags: []
+categories: ""
+changefreq: "yearly"
+lastmod: {{ .Date }}
+priority: 0.7
+layout: post
 ---
 
 {{ replace .Name "-" " " | title }}

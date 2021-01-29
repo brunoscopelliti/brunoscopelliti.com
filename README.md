@@ -29,6 +29,3 @@ Build production ready website.
 ```
 hugo
 ```
-
-
-

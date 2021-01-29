@@ -5,6 +5,7 @@ $colorLink: #6600ff;
 $colorLinkFocus: darken($colorLink, 15%);
 
 $outlineColor: #0066cc;
+$specialTextColor: #6600ff;
 
 $maxWidthContent: 800px;
 
@@ -18,3 +19,6 @@ $weightLight: 300;
 $weightNormal: 400;
 $weightMedium: 600;
 $weightBold: 700;
+
+$sidePaddingPageContentMobile: 16px;
+$sidePaddingPageContentTabletPortrait: 64px;

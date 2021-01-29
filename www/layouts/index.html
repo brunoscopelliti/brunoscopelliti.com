@@ -1,10 +1,18 @@
-{{ define "title" }}
-{{ .Site.Title }}
+{{ define "title" }}{{ .Site.Title }}{{ end }}
+
+{{ define "body-class" }}home{{ end }}
+
+{{ define "home-link" }}
+<a class="home-link" href="/">
+  <span>BS</span>
+</a>
 {{ end }}
 
 {{ define "page-highlights" }}
 <div class="intro home-intro">
-  {{- partial "avatar.html" . -}}
+  <div class="avatar">
+    {{- partial "avatar.html" . -}}
+  </div>
   <div class="message">
     Hi, I am Bruno Scopelliti.
     <br/>I am an independent software engineer.
@@ -23,6 +31,6 @@
   {{ end }}
 </div>
 <div class="blog-link">
-  <a href="/blog" title="Visit blog page">View all articles</a>
+  <a href="/blog" aria-label="Visit blog page">View all articles</a>
 </div>
 {{ end }}

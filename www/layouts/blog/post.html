@@ -1,0 +1,45 @@
+{{ define "twitter-meta" }}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="{{- .Param "twitter" -}}">
+<meta name="twitter:title" content="{{- .Title -}}">
+<meta name="twitter:image" content="{{- .Param "twitterImage" -}}">
+<meta name="twitter:description" content="{{ .Params.preview | truncate 200 }}">
+{{ end }}
+
+{{ define "main-content" }}
+<article class="post">
+  <div class="post-breadcrumbs">
+    <a href="/blog" aria-label="View all articles">Blog</a>
+    <span>/</span>
+    {{ range (.GetTerms "categories") }}
+    <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+    <span>/</span>
+    {{ end }}
+  </div>
+  <h1 class="post-title">{{- .Title -}}</h1>
+  <div class="post-body">{{- .Content -}}</div>
+  <div class="post-footer">
+    <div class="post-date">{{- .Date.Format "January 2, 2006" -}}</div>
+    <div class="post-links">
+      <a href="https://twitter.com/search?q={{- .Permalink -}}" target="_blank" rel="noopener noreferrer">Discuss on Twitter</a>
+      <span class="post-links-spacer" aria-hidden="true">&bullet;</span>
+      <a href="https://github.com/brunoscopelliti/brunoscopelliti.com/edit/master/www/content/{{- trim .RelPermalink "/" -}}.md" target="_blank" rel="noopener noreferrer">Edit on GitHub</a>
+    </div>
+    <div class="post-share">
+      <span class="post-share-line"></span>
+      <span class="post-share-text">Share article</span>
+      <a class="post-share-link" href="https://twitter.com/intent/tweet?url={{- .Permalink -}}" target="_blank" rel="noopener noreferrer" aria-label="Share article on Twitter">Twitter</a>
+      <a class="post-share-link" href="https://www.reddit.com/submit?title={{- .Title -}}&url={{- .Permalink -}}" target="_blank" rel="noopener noreferrer" aria-label="Share article on Reddit">Reddit</a>
+    </div>
+    <div class="post-author">
+      <div class="avatar-frame">
+          {{- partial "avatar.html" . -}}
+      </div>
+      <div class="post-author-bio">
+        <strong>Bruno Scopelliti</strong> is an independent software engineer, with focus on frontend development.
+        <br/>He lives in nice Bologna, Italy.
+      </div>
+    </div>
+  </div>
+</article>
+{{ end }}

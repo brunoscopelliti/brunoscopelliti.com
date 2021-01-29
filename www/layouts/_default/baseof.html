@@ -16,16 +16,28 @@
 
     {{ $stylesheet := resources.Get "scss/style.scss" | toCSS (dict "targetPath" "css/style.css" "outputStyle" "compressed") | fingerprint }}
     <link rel="stylesheet" href="{{ $stylesheet.RelPermalink }}" integrity="{{ $stylesheet.Data.Integrity }}">
+
+    {{- block "twitter-meta" . }}{{- end }}
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
   </head>
-  <body>
+  <body class="{{- block "body-class" . }}{{- end }}">
     <a id="skip-nav" href="#main">Go to content</a>
 
     <header class="site-header">
       <div class="site-width-wrapper">
         <div class="site-nav">
-          <a class="home-link" href="/">
-            <span>BS</span>
-          </a>
+          {{- block "home-link" . }}
+            <a class="avatar-home-link" href="/">
+              <span class="avatar-frame">
+                {{- partial "avatar.html" . -}}
+              </span>
+              <span>Bruno Scopelliti</span>
+            </a>
+          {{- end }}
           <div>
             {{- partial "site-menu.html" . -}}
           </div>
@@ -36,11 +48,10 @@
       </div>
     </header>
 
-    <div class="page-content">
+    <div class="page-main-content">
       <main id="main">
         {{- block "main-content" . }}{{- end }}
       </main>
-      {{- block "additional-content" . }}{{- end }}
     </div>
 
     <footer class="site-footer">

@@ -47,7 +47,7 @@ angular.module("myApp.services", [])
         // ?
         // How could I update the revenues array?
       },
-      drawPlot: function(d) {
+      drawPlot: function (d) {
         // 1)
         // Plot the data.
       }
@@ -76,7 +76,7 @@ getData: function () {
 Now `getData` returns a promise to the controller, and what remains to do is to handle the returned value in a callback function, using the [then()](https://docs.angularjs.org/api/ng/service/$q "AngularJS api: $q") AngularJS method. So in the controller I've to add the following code:
 
 ```js
-p.getData().then(function(promise) {
+p.getData().then(function (promise) {
   scope.revenues = promise;
 });
 ```

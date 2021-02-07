@@ -18,8 +18,7 @@ AngularJS comes with a rich built-in set of directives, that can be even extende
 
 In this post we're covering some typical use cases for custom directives.
 
-Basic syntax for custom directives
--------
+## Basic syntax for custom directives
 
 Let's start from the basic syntax to create a custom directive.
 
@@ -46,7 +45,7 @@ The angular-seed template suggests to accomplish this operation in a different j
 
 ```js
 angular.module("myApp.directives", []).
-  directive("myFirstDirective", function(injectables) {
+  directive("myFirstDirective", function (injectables) {
     return function link (scope, element, attrs) {
       // Do stuff here
     }
@@ -66,16 +65,14 @@ angular.module("myApp", ["myApp.directives"]);
 
 Now I will follow these steps to write a custom directive.
 
-Custom directives use cases
--------
+## Custom directives use cases
 At the moment I see two principal scenarios, in which the use of directives could be very useful.
 
 * **Directives allow code reusability.** Directives indeed could be used to split the code of a complex app into smaller pieces, which could be reused also in others pages, or even in others projects. A typical example could be an e-commerce web app: in this kind of app, there are some components that can't miss, like the cart, the item page etc. All these parts could be realized through directives.
 
 * **Directives allow to save the two way data binding**, when AngularJS is used in conjunction with third party modules, eg. a jQuery plugin.
 
-Templating through directives
--------
+## Templating through directives
 
 Let's start with a simple demo.
 
@@ -145,8 +142,7 @@ And changing the template this way:
 
 This example could be used as starting point to show more sophisticated features of AngularJS, and maybe someday I will do this; but meanwhile let's pass to the second use case.
 
-Saving two way data binding through directives
--------
+## Saving two way data binding through directives
 
 If the first use case could be seen as an optimization of the code, there is another case in which the use of custom directives is not an option.
 

@@ -166,7 +166,7 @@ The ngUnique accepts as parameter the names of the field and of the table, where
               username:elem.val(),
               dbField:attrs.ngUnique
             }
-          }).success(function(data, status, headers, config) {
+          }).success(function (data, status, headers, config) {
             ctrl.$setValidity("unique", data.status);
           });
         });

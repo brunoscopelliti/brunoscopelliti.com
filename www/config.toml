@@ -25,5 +25,5 @@ paginate = 5
   [markup.goldmark.renderer]
     unsafe= true
 
-#[taxonomies]
-#  tags = "blog/search"
+[taxonomies]
+  category = "categories"

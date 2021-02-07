@@ -1,12 +1,29 @@
 {{ define "main-content" }}
-<h1>Search</h1>
-<input type="search" name="query" placeholder="Enter a keyword" />
+<h1 class="page-title">Search</h1>
 
-<ul>
-  {{ range $taxonomyname, $taxonomy := .Site.Taxonomies.categories }}
-    <li>
-      <a href="{{ $taxonomyname | urlize }}">{{ $taxonomyname }}</a>
-    </li>
-  {{ end }}
-</ul>
+<div class="search-box">
+  <input type="search" name="query" placeholder="Enter a keyword" />
+
+  <ul class="keywords">
+    {{ range $term, $taxonomy := .Site.Taxonomies.categories }}
+      {{ $termUrl := replace $term "." "" }}
+      {{ $termUrl := replace $termUrl "#" "-sharp" }}
+      <li>
+        <a class="keyword" href="/blog/search/{{ $termUrl | urlize }}">{{ $term }}</a>
+      </li>
+    {{ end }}
+  </ul>
+
+</div>
+
+
+
+
+{{ range (where .Site.Pages "Type" "blog").GroupByDate "2006" }}
+<h2>{{ .Key }}</h2>
+{{ range .Pages }}
+<p>{{.Title}}</p>
+{{ end }}
+{{ end }}
+
 {{ end }}

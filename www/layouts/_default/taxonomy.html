@@ -1,3 +1,7 @@
 {{ define "main-content" }}
-<h1>Result for {{ . }} </h1>
+<h1>Result for {{ .Page.Title }}</h1>
+
+{{ range .Pages }}
+<p>{{ .Title }}</p>
+{{ end }}
 {{ end }}

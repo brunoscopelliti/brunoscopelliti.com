@@ -12,19 +12,23 @@ article.post .post-body {
   h2 {
     margin: 48px auto 12px;
   }
+  h3 {
+    margin: 24px auto 6px;
+  }
 
   p {
     margin: 0;
   }
 
   p code {
-    background: #efecfc;
-    border-radius: 4px;
-    color: darken($specialTextColor, 5%);
+    @include tag();
+    // background: #efecfc;
+    // border-radius: 4px;
+    // color: darken($specialTextColor, 5%);
     font-size: 17px;
-    margin: 0;
+    // margin: 0;
     margin-right: 2px;
-    padding: 3px 7px;
+    // padding: 3px 7px;
   }
 
   .highlight {
@@ -38,8 +42,55 @@ article.post .post-body {
     padding: 16px 8px;
   }
 
+  blockquote {
+    font-style: italic;
+    line-height: 28px;
+
+    border-left: 4px solid $blockQuoteBorderColor;
+
+    margin: 18px 6px;
+    margin-right: 0;
+
+    padding: 9px 12px;
+    padding-right: 0;
+  }
+
   iframe {
     margin: 24px 0;
+  }
+
+  .post-figure {
+    margin: 0;
+    margin-bottom: 24px;
+
+    img.post-img {
+      margin: 0;
+      width: 100%;
+
+      &.post-img-zoomable {
+        cursor: zoom-in;
+        transition: .5s ease-in-out;
+      }
+
+      &.post-img-zoomable.is-zoomed {
+        cursor: zoom-out;
+        margin-left: -10%;
+        width: 120%;
+      }
+    }
+
+    figcaption {
+      font-size: 15px;
+      line-height: 18px;
+    }
+  }
+
+  .footnote {
+    font-size: 16px;
+    line-height: 24px;
+    border-top: 1px solid #999;
+    margin: 48px 0 0;
+    padding-top: 24px;
   }
 }
 
@@ -51,6 +102,11 @@ article.post .post-body {
 
   article.post .post-body .highlight pre {
     padding: 16px 24px;
+  }
+
+  article.post .post-body blockquote {
+    margin: 24px 18px;
+    margin-right: 0;
   }
 }
 

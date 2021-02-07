@@ -1,0 +1,12 @@
+<figure class="post-figure">
+  <img class="post-img {{ if eq (.Get "zoom") true}}post-img-zoomable{{ end }}" src="/images/posts/{{ with .Get "src" }}{{.}}{{ end }}" alt="{{ with .Get "caption" }}{{.}}{{ end }}"/>
+  {{ with .Get "caption" }}
+  <figcaption>{{.}}</figcaption>
+  {{ end }}
+</figure>
+{{ if eq (.Get "zoom") true}}
+{{ $zoomableImageController := resources.Get "js/zoom.js" | js.Build (dict "minify" true "target" "es5") }}
+<script>
+  {{ $zoomableImageController.Content | safeJS }}
+</script>
+{{ end }}

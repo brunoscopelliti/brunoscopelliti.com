@@ -20,7 +20,7 @@ body:not(.home) .site-header {
 .site-header .site-nav {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: baseline;
 }
 
 .site-header .home-link {
@@ -87,7 +87,7 @@ body:not(.home) .site-header {
   .menu-open {
     overflow: hidden;
   }
-  
+
   .menu-open .site-header .menu {
     display: flex;
     flex-direction: column;
@@ -125,6 +125,10 @@ body:not(.home) .site-header {
   margin-bottom: 36px;
 }
 
+.site-header .menu-links li.search svg {
+  display: none;
+}
+
 .site-header .menu-links li a {
   color: #fff;
 }
@@ -134,13 +138,13 @@ body:not(.home) .site-header {
     background: #0003;
     border-radius: 4px;
     padding: 5px 12px;
-  
   }
 }
 
 @media (min-width: $widthTabletPortrait) {
   .site-header .menu-links {
     display: flex;
+    align-items: baseline;
 
     height: auto;
     overflow: visible;
@@ -157,15 +161,23 @@ body:not(.home) .site-header {
     }
   }
 
+  .site-header .menu-links li.search {
+    span {
+      display: none;
+    }
+    svg {
+      display: inline;
+    }
+  }
+
   .site-header .menu-links li a {
     font-weight: $weightLight;
     padding: 6px 8px;
     transition: .25s ease-out;
-
-    &:hover:not(:focus) {
-      background: #0003;
-      border-radius: 4px;
-    }
+  }
+  .site-header .menu-links li:not(.search) a:hover:not(:focus) {
+    background: #0003;
+    border-radius: 4px;
   }
 }
 

@@ -5,3 +5,11 @@
   margin-right: auto;
   max-width: $maxWidth;
 }
+
+@mixin tag () {
+  background: #efecfc;
+  border-radius: 4px;
+  color: darken($specialTextColor, 5%);
+  margin: 0;
+  padding: 3px 7px;
+}

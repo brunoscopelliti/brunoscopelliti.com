@@ -7,7 +7,7 @@
 {{ end }}
 
 {{ define "main-content" }}
-<article class="post">
+<article class="post" data-js="post">
   <div class="post-breadcrumbs">
     <a href="/blog" aria-label="View all articles">Blog</a>
     <span>/</span>
@@ -42,4 +42,8 @@
     </div>
   </div>
 </article>
+{{ $linkController := resources.Get "js/target-blank.js" | js.Build (dict "minify" true "target" "es5") }}
+<script>
+  {{ $linkController.Content | safeJS }}
+</script>
 {{ end }}

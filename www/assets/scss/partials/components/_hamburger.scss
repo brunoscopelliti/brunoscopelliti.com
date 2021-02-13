@@ -5,13 +5,10 @@
 $color: #fff;
 
 .hamburger {
+  @include square(20px);
   display: block;
-
-  width: 20px;
-  height: 16px;
-  padding: 2px 0;
+  padding: 0;
   position: relative;
-
   transition: .5s ease-in-out;
 }
 

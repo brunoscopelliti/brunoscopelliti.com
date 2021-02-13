@@ -1,29 +1,42 @@
-.post-entry {
-  margin: 36px 0 48px;
+.post-list {
+  margin: 0;
+  margin-top: 12px;
 }
 
-.post-entry h2.post-title {
-  margin-bottom: 12px;
-}
-
-.post-entry .post-title a {
-  color: #222;
-
-  &:hover,
-  &:focus {
-    color: $colorLinkFocus;
+@media (min-width: $tabletPortraitWidth) {
+  .post-list {
+    margin-top: 24px;
   }
 }
 
-.post-entry .post-preview,
-.post-entry .post-link,
-.blog-link {
-  font-size: 18px;
-  font-weight: $weightLight;
-  line-height: 26px;
+.post-list .post-entry {
+  margin: 36px 0 48px;
+
+  &:first-of-type {
+    margin-top: 0;
+  }
 }
 
-.post-entry .post-link,
+.post-list .post-entry h2 {
+  margin-bottom: 8px;
+}
+
+.post-list .post-entry h2 a {
+  color: $titleLinkColor;
+
+  &:hover,
+  &:focus {
+    color: $titleLinkColorOnFocus;
+  }
+}
+
+.post-list .post-entry .post-preview,
+.post-list .post-entry .post-link,
+.blog-link {
+  font-weight: $weightLight;
+}
+
+.post-list .post-entry .post-link,
 .blog-link {
   margin: 0;
   margin-top: 8px;
@@ -34,6 +47,8 @@
 }
 
 .pagination {
+  @include text-small;
+
   display: flex;
   justify-content: center;
   align-content: center;
@@ -43,12 +58,17 @@
   padding: 0;
 
   .page-link {
-    color: $colorLink;
-    padding: 2px 4px;
+    padding: 6px 12px;
     transition: .25s ease-in-out;
   }
 
   .active .page-link {
-    color: #777;
+    color: $paginationCurrentPageColor;
+  }
+}
+
+@media (min-width: $tabletPortraitWidth) {
+  .pagination .page-link {
+    padding: 2px 6px;
   }
 }

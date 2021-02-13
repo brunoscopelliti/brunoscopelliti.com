@@ -11,24 +11,22 @@
 
   &:focus,
   &:active {
-    box-sizing: content-box;
     color: #fff;
     background-color: #000;
     left: 50%;
     top: auto;
-    width: 120px;
+    width: 160px;
     height: auto;
     overflow: auto;
     margin: 38px 0 0 -68px;
     padding: 6px 16px;
     border-radius: 6px;
     text-align: center;
-    font-size: 18px;
     z-index: $zSkipNavigation;
   }
 }
 
-@media (min-width: $widthTabletPortrait) {
+@media (min-width: $tabletPortraitWidth) {
   #skip-nav:focus,
   #skip-nav:active {
     left: auto;

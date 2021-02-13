@@ -1,29 +1,31 @@
 body {
-  color: #000;
-  background-color: #fafafa;
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
+  @include holy-grail;
+
+  background-color: $pageBgColor;
+  color: $pageColor;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 .page-main-content {
   @include site-width;
+  @include holy-grail-child;
 
-  flex: 1;
-
-  background: #fff;
+  background: $pageContentBgColor;
 
   margin-top: -32px;
-  padding: 36px $sidePaddingPageContentMobile 48px;
+  padding: 36px $pageSidePadding 48px;
 }
 
-@media (min-width: $widthTabletPortrait) {
+@media (min-width: $tabletPortraitWidth) {
   .page-main-content {
-    padding: $sidePaddingPageContentTabletPortrait;
+    padding: $pageSidePadding_tabletPortrait;
   }
 }
 
-@media (min-width: $maxWidthContent) {
+@media (min-width: $pageContentMaxWidth) {
   .page-main-content {
     border-radius: 8px;
   }
@@ -31,10 +33,11 @@ body {
 
 .site-width-wrapper {
   @include site-width;
+
   padding: 0 12px;
 }
 
-@media (min-width: $widthTabletPortrait) {
+@media (min-width: $tabletPortraitWidth) {
   .site-width-wrapper {
     padding: 0 24px;
   }

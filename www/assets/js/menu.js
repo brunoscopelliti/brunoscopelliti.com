@@ -1,3 +1,7 @@
+var g = window.BS_blog;
+var get = g.$1;
+var listen = g.listen;
+
 var state = {
   open: false,
 };
@@ -9,7 +13,7 @@ var state = {
  * @returns {HTMLElement}
  */
 function hamburger () {
-  return document.querySelector("[data-js='hamburger']");
+  return get("[data-js='hamburger']");
 }
 
 /**
@@ -22,11 +26,16 @@ function hamburger () {
  */
 function onESC (event) {
   if (event.which === 27) {
-    document.removeEventListener("keyup", onESC);
+    if (stopListenKeyup) {
+      stopListenKeyup();
+      stopListenKeyup = null;
+    }
 
     closeMenu();
   }
 }
+
+var stopListenKeyup;
 
 /**
  * Depending on the state of the menu,
@@ -36,9 +45,10 @@ function onESC (event) {
  */
 function toggleKeyListener () {
   if (state.open) {
-    document.addEventListener("keyup", onESC);
+    stopListenKeyup = listen("keyup", document, onESC);
   } else {
-    document.removeEventListener("keyup", onESC);
+    stopListenKeyup();
+    stopListenKeyup = null;
   }
 }
 
@@ -86,4 +96,4 @@ function onToggle () {
   toggleKeyListener();
 }
 
-hamburger().addEventListener("click", onToggle);
+listen("click", hamburger(), onToggle);

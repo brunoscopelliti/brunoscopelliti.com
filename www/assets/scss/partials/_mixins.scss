@@ -1,15 +1,97 @@
-@mixin site-width ($maxWidth: $maxWidthContent) {
-  box-sizing: border-box;
+@mixin holy-grail () {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+@mixin holy-grail-child () {
+  flex: 1;
+}
+
+@mixin square ($size) {
+  height: $size;
+  width: $size;
+}
+
+@mixin circle ($size) {
+  @include square($size);
+  border-radius: 100%;
+}
+
+@mixin center-inline ($size, $border-size: 0) {
+  @include square($size);
+  line-height: $size - $border-size;
+  text-align: center;
+}
+
+@mixin site-width ($maxWidth: $pageContentMaxWidth) {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
   max-width: $maxWidth;
 }
 
+@mixin fullscreen () {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
 @mixin tag () {
-  background: #efecfc;
-  border-radius: 4px;
-  color: darken($specialTextColor, 5%);
+  background: $tagBgColor;
+  border-radius: 3px;
+  color: $tagColor;
   margin: 0;
   padding: 3px 7px;
+}
+
+@mixin body-text {
+  font-size: 18px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: $weightNormal;
+  line-height: 28px;
+}
+
+@mixin main-title {
+  font-size: 2rem;
+  font-weight: $weightBold;
+  line-height: 2.75rem;
+}
+
+@mixin secondary-title {
+  font-size: 1.5rem;
+  font-weight: $weightMedium;
+  line-height: 2rem;
+}
+
+@mixin title-lv3 {
+  font-size: 1rem;
+  font-weight: $weightBold;
+  line-height: 1.2rem;
+}
+
+@mixin text-note {
+  font-size: 0.85rem;
+  font-weight: $weightLight;
+  line-height: 1.25rem;
+}
+
+@mixin text-small ($weight: $weightNormal) {
+  font-size: 0.85rem;
+  font-weight: $weight;
+  line-height: 1rem;
+}
+
+@mixin text-minimum ($weight: $weightNormal) {
+  font-size: 0.75rem;
+  font-weight: $weight;
+  line-height: 1rem;
+}
+
+@mixin text-large {
+  font-size: 1.3rem;
+  font-weight: $weightNormal;
+  line-height: 2rem;
 }

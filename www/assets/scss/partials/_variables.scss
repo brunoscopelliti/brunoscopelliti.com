@@ -1,26 +1,82 @@
-$gradientStart: #544a7d;
-$gradientEnd: #ffd452;
+// Chrome default outline color.
+$outlineColor: #06c;
 
-$colorLink: #6600ff;
-$colorLinkFocus: darken($colorLink, 15%);
+/**
+ * breakpoints
+ */
+$tabletPortraitWidth: 768px;
 
-$outlineColor: #0066cc;
-$specialTextColor: #6600ff;
-
-$blockQuoteBorderColor: #6600ff;
-
-$maxWidthContent: 800px;
-
-$zIndexMenu: 999;
-$zIndexCloseMenu: 1000;
-$zSkipNavigation: 99999;
-
-$widthTabletPortrait: 768px;
-
+/**
+ * font-weight
+ */
 $weightLight: 300;
 $weightNormal: 400;
 $weightMedium: 600;
 $weightBold: 700;
 
-$sidePaddingPageContentMobile: 16px;
-$sidePaddingPageContentTabletPortrait: 64px;
+/**
+ * z-index
+ */
+$zIndexMenu: 999;
+$zIndexCloseMenu: 1000;
+$zSkipNavigation: 99999;
+
+/**
+ * links
+ */
+$linkColor: #60f;
+$linkColorOnFocus: darken($linkColor, 15%);
+
+/**
+ * inputs
+ */
+$inputBorderColor: #ddd;
+
+/**
+ * page wide, and general layout settings
+ */
+$pageBgColor: #fafafa;
+$pageContentBgColor: #fff;
+$pageColor: #000;
+
+$pageContentMaxWidth: 800px;
+
+$pageSidePadding: 16px;
+$pageSidePadding_tabletPortrait: 64px;
+
+// Gradient adapted from https://uigradients.com/
+$headerBackground: linear-gradient(30deg, #544a7d 30%, #ffd452 180%); 
+$headerColor: #fff;
+
+$footerBgColor: #412d90;
+$footerColor: #fff;
+
+$tagBgColor: #efecfc;
+$tagColor: darken(#60f, 5%);
+$tagSelectedBgColor: lighten(#60f, 20%);
+$tagSelectedColor: #fff;
+
+$textHighlightColor: #60f;
+
+/**
+ * post lists
+ */
+
+$titleLinkColor: #000;
+$titleLinkColorOnFocus: #60f;
+
+$paginationCurrentPageColor: #555;
+
+/**
+ * taxonomies
+ */
+
+$dateColor: #555;
+
+/**
+ * post
+ */
+
+$blockquoteBorderColor: #60f;
+
+$footnoteBorderColor: #999;

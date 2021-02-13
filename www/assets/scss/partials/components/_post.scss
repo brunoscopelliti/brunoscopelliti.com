@@ -1,62 +1,27 @@
-article.page  h1.page-title,
-article.post  h1.post-title {
-  margin: 0;
-  margin-bottom: 24px;
+article.single h1,
+article.post h1 {
+  margin-bottom: .5em;
 }
 
-article.page .page-content-body,
+article.single .single-body,
 article.post .post-body {
-  font-size: 18px;
-  line-height: 32px;
-
   h2 {
-    margin: 48px auto 12px;
+    margin: 48px auto 6px;
   }
+
   h3 {
-    margin: 24px auto 6px;
+    margin: 24px auto 0;
   }
 
   p {
+    line-height: 30px;
     margin: 0;
   }
 
   p code {
     @include tag();
-    // background: #efecfc;
-    // border-radius: 4px;
-    // color: darken($specialTextColor, 5%);
-    font-size: 17px;
-    // margin: 0;
-    margin-right: 2px;
-    // padding: 3px 7px;
-  }
 
-  .highlight {
-    font-size: 16px;
-    line-height: 24px;
-    margin: 16px (-$sidePaddingPageContentMobile);
-  }
-
-  .highlight pre {
-    overflow: auto;
-    padding: 16px 8px;
-  }
-
-  blockquote {
-    font-style: italic;
-    line-height: 28px;
-
-    border-left: 4px solid $blockQuoteBorderColor;
-
-    margin: 18px 6px;
-    margin-right: 0;
-
-    padding: 9px 12px;
-    padding-right: 0;
-  }
-
-  iframe {
-    margin: 24px 0;
+    margin: 0 1px;
   }
 
   .post-figure {
@@ -80,33 +45,82 @@ article.post .post-body {
     }
 
     figcaption {
-      font-size: 15px;
-      line-height: 18px;
+      @include text-small($weightLight);
+    }
+  }
+}
+
+article.post .post-body {
+  h2, h3 {
+    position: relative;
+
+    a {
+      color: #000;
     }
   }
 
+  img.anchor {
+    display: none;
+  }
+
+  .highlight {
+    margin: 16px (-$pageSidePadding);
+  }
+
+  .highlight pre {
+    overflow: auto;
+    padding: 16px 8px;
+  }
+
+  blockquote {
+    font-style: italic;
+
+    border-left: 4px solid $blockquoteBorderColor;
+
+    margin: 24px 8px;
+    margin-right: 0;
+
+    padding: 9px 12px;
+    padding-right: 0;
+  }
+
+  iframe {
+    margin: 24px 0;
+  }
+
   .footnote {
-    font-size: 16px;
-    line-height: 24px;
-    border-top: 1px solid #999;
+    @include text-note;
+    border-top: 1px solid $footnoteBorderColor;
     margin: 48px 0 0;
     padding-top: 24px;
   }
 }
 
-@media (min-width: $widthTabletPortrait) {
-  article.post .post-body .highlight {
-    margin-left: -$sidePaddingPageContentTabletPortrait;
-    margin-right: -$sidePaddingPageContentTabletPortrait;
-  }
+@media (min-width: $tabletPortraitWidth) {
+  article.post .post-body {
+    :focus img.anchor,
+    :hover img.anchor {
+      display: inline-block;
+      position: absolute;
+      left: -28px;
+      top: 5px;
+    }
 
-  article.post .post-body .highlight pre {
-    padding: 16px 24px;
-  }
-
-  article.post .post-body blockquote {
-    margin: 24px 18px;
-    margin-right: 0;
+    .highlight {
+      margin-left: -$pageSidePadding_tabletPortrait;
+      margin-right: -$pageSidePadding_tabletPortrait;
+    }
+  
+    .highlight pre {
+      @include text-small;
+      line-height: 1.3rem;
+      padding: 16px 24px;
+    }
+  
+    blockquote {
+      margin: 24px 18px;
+      margin-right: 0;
+    }
   }
 }
 
@@ -115,9 +129,10 @@ article.post .post-footer {
 }
 
 article.post .post-date {
-  color: $specialTextColor;
+  @include text-small;
+  color: $textHighlightColor;
   margin: 0;
-  margin-bottom: 12px;
+  margin-bottom: 6px;
 }
 
 article.post .post-date,
@@ -125,10 +140,8 @@ article.post .post-links {
   text-align: right;
 }
 
-article.post .post-links {
-  font-size: 20px;
-}
 article.post .post-links-spacer {
+  color: #555;
   font-weight: $weightBold;
   margin: 0 6px;
 }
@@ -136,7 +149,7 @@ article.post .post-links-spacer {
 article.post .post-share {
   display: flex;
   align-items: center;
-  margin: 16px auto;
+  margin: 4px auto;
 }
 article.post .post-share-line {
   border-top: 1px solid #999;
@@ -145,13 +158,11 @@ article.post .post-share-line {
   margin-top: 4px;
 }
 article.post .post-share-text {
-  color: #666;
-  font-size: 18px;
+  color: #555;
   font-variant: all-small-caps;
   padding: 8px;
 }
 article.post .post-share-link {
-  font-size: 20px;
   margin: 0 6px;
 }
 article.post .post-share-link:last-child {
@@ -165,23 +176,21 @@ article.post .post-author {
   padding: 0 4px;
 }
 
-@media (min-width: $widthTabletPortrait) {
+@media (min-width: $tabletPortraitWidth) {
   article.post .post-author {
     margin-top: 64px;
   }
 }
 
 article.post .avatar-frame {
-  height: 96px;
-  width: 96px;
-  min-width: 96px;
+  @include square(96px);
+
+  flex-shrink: 0;
 }
 
-@media (min-width: $widthTabletPortrait) {
+@media (min-width: $tabletPortraitWidth) {
   article.post .avatar-frame {
-    height: 128px;
-    width: 128px;
-    min-width: 128px;
+    @include square(128px);
   }
 }
 
@@ -191,10 +200,8 @@ article.post .post-author-bio {
   padding: 0;
 }
 
-@media (min-width: $widthTabletPortrait) {
+@media (min-width: $tabletPortraitWidth) {
   article.post .post-author-bio {
-    font-size: 18px;
-    line-height: 26px;
     margin-left: 36px;
     padding-top: 4px;
   }

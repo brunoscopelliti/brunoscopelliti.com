@@ -1,47 +1,44 @@
+html,
 body {
-  font-family: "Open Sans", sans-serif;
+  @include body-text;
+}
 
-  font-size: 16px;
-  font-weight: $weightNormal;
-  line-height: 24px;
+a {
+  color: $linkColor;
+  text-decoration: none;
+
+  &:focus,
+  &:hover {
+    color: $linkColorOnFocus;
+  }
 }
 
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
 }
 
-h1.page-title,
-h1.post-title {
-  font-size: 24px;
-  font-weight: $weightBold;
-  line-height: 32px;
+h1 {
+  @include main-title;
+
+  margin-bottom: .75em;
 }
 
 h2 {
-  font-size: 20px;
-  font-weight: $weightMedium;
-  line-height: 24px;
+  @include secondary-title;
+
+  margin-bottom: .75em;
 }
 
-@media (min-width: $widthTabletPortrait) {
-  h1.page-title,
-  h1.post-title {
-    font-size: 32px;
-    line-height: 40px;
+@media (min-width: $tabletPortraitWidth) {
+  h1 {
+    margin-bottom: 1em;
   }
 
   h2 {
-    font-size: 24px;
-    line-height: 32px;
+    margin-bottom: 1em;
   }
 }
 
-a {
-  color: $colorLink;
-  text-decoration: none;
-
-  &:focus,
-  &:hover {
-    color: $colorLinkFocus;
-  }
+h3 {
+  @include title-lv3;
 }

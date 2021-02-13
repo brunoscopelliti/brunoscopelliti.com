@@ -3,9 +3,11 @@
 {{ define "body-class" }}home{{ end }}
 
 {{ define "home-link" }}
-<a class="home-link" href="/">
-  <span>BS</span>
-</a>
+<div class="home-link-wrapper">
+  <a class="home-link" href="/">
+    <span>BS</span>
+  </a>
+</div>
 {{ end }}
 
 {{ define "page-highlights" }}
@@ -21,7 +23,7 @@
 {{ end }}
 
 {{ define "main-content" }}
-<h1 class="page-title">Blog</h1>
+<h1>Blog</h1>
 <div class="post-list">
   {{ $sectionName := .Site.Params.mainSectionName | default (slice "blog") }}
   {{ $section := where .Site.RegularPages "Section" "in" $sectionName }}

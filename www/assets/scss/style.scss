@@ -1,6 +1,7 @@
+@import "partials/normalize";
+
 @import "partials/variables";
 @import "partials/mixins";
-@import "partials/normalize";
 
 @import "partials/layout";
 @import "partials/typography";
@@ -11,7 +12,9 @@
 
 @import "partials/components/avatar";
 
-@import "partials/components/search-box";
-
 @import "partials/components/post-list";
+@import "partials/components/taxonomy";
+
 @import "partials/components/post";
+
+@import "partials/utils";

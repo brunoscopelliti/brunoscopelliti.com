@@ -1,4 +1,36 @@
 .search-box {
+  margin: 0;
+  margin-bottom: 24px;
+}
+
+.search-box .blog-search {
+  @include text-small;
+
+  border: 1px solid $inputBorderColor;
+  border-radius: 3px;
+
+  margin: 0;
+  margin-bottom: 8px;
+  padding: 0;
+  position: relative;
+
+  width: 100%;
+
+  input {
+    border: 0;
+    line-height: 1.25em;
+    padding: 12px 8px;
+    width: 100%;
+  }
+
+  .blog-posts-count {
+    background: #fff;
+    padding: 0 8px;
+    position: absolute;
+    top: 12px;
+    right: 4px;
+    z-index: 1;
+  }
 }
 
 .search-box .keywords {
@@ -10,12 +42,71 @@
   flex-wrap: wrap;
 }
 
-.search-box a.keyword {
-  @include tag();
+.search-box .keyword {
+  @include tag;
+  @include text-small;
 
-  font-size: 17px;
-  line-height: 32px;
+  appearance: none;
+  border: 0;
+  cursor: pointer;
 
+  margin: 0;
   margin-right: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 4px;
+
+  &.selected {
+    background-color: $tagSelectedBgColor;
+    color: $tagSelectedColor;
+  }
+}
+
+.search-box .keyword-count {
+  @include text-minimum;
+
+  color: #000;
+  margin: 0;
+  margin-left: 4px;
+}
+.search-box .selected .keyword-count {
+  color: $tagSelectedColor;
+}
+
+
+.search-box .toggle-keywords button {
+  @include text-minimum;
+
+  appearance: none;
+  background: none;
+  border: 0;
+  color: #555;
+}
+
+.search-box .toggle-keywords ~ li {
+  display: none;
+}
+.search-box .expanded .toggle-keywords ~ li {
+  display: block;
+}
+.search-box .expanded .toggle-keywords-less {
+  display: none;
+}
+.search-box .expanded .toggle-keywords-more {
+  display: none;
+}
+.search-box .expanded .toggle-keywords-less {
+  display: block;
+}
+
+@media (min-width: $tabletPortraitWidth) {
+  .search-box .toggle-keywords {
+    display: none !important;
+  }
+
+  .search-box .toggle-keywords ~ li:not(:last-child) {
+    display: block;
+  }
+}
+
+.search-box .google-search {
+  @include text-small($weightLight);
 }

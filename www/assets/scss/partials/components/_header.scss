@@ -1,64 +1,25 @@
-/**
- * Gradient adapted from https://uigradients.com/
- */
-$gradient: linear-gradient(30deg, $gradientStart 30%, $gradientEnd 180%); 
-
 .site-header {
-  background-image: $gradient;
+  background: $headerBackground;
   background-position: center right, center left;
   background-repeat: no-repeat;
 
+  color: $headerColor;
+
   min-height: 72px;
-  padding: 0;
-  padding-top: 36px;
+  padding: 36px 0 12px;
 }
 
-body:not(.home) .site-header {
-  padding-bottom: 12px;
+.site-header a {
+  color: $headerColor;
 }
 
 .site-header .site-nav {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
 }
 
-.site-header .home-link {
-  border: 1px solid #fff;
-  border-radius: 1px;
-
-  display: inline-block;
-  text-align: center;
-
-  color: #fff;
-
-  font-size: 20px;
-  letter-spacing: 2px;
-
-  padding: 0;
-
-  width: 36px;
-  height: 36px;
-  line-height: 36px;
-}
-
-.site-header .avatar-home-link {
-  color: #fff;
-  font-size: 20px;
-
-  .avatar-frame {
-    height: 48px;
-    width: 48px;
-
-    margin-right: 8px;
-    vertical-align: middle;
-  }
-
-  img {
-    margin: 0;
-    width: 100%;
-  }
-}
+@import "partials/components/home-link";
 
 .site-header .menu-btn {
   appearance: none;
@@ -73,7 +34,7 @@ body:not(.home) .site-header {
 
 @import "partials/components/hamburger";
 
-@media (min-width: $widthTabletPortrait) {
+@media (min-width: $tabletPortraitWidth) {
   .site-header .menu-btn {
     display: none;
   }
@@ -83,7 +44,7 @@ body:not(.home) .site-header {
   display: none;
 }
 
-@media (max-width: $widthTabletPortrait) {
+@media (max-width: $tabletPortraitWidth) {
   .menu-open {
     overflow: hidden;
   }
@@ -92,19 +53,15 @@ body:not(.home) .site-header {
     display: flex;
     flex-direction: column;
     justify-content: center;
-  
-    background: $gradient;
-  
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+
+    background: $headerBackground;
+
+    @include fullscreen;
     z-index: $zIndexMenu;
   }
 }
 
-@media (min-width: $widthTabletPortrait) {
+@media (min-width: $tabletPortraitWidth) {
   .site-header .menu {
     display: block;
   }
@@ -120,20 +77,15 @@ body:not(.home) .site-header {
 }
 
 .site-header .menu-links li {
-  font-size: 24px;
   margin: 0;
-  margin-bottom: 36px;
+  margin-bottom: 18px;
 }
 
 .site-header .menu-links li.search svg {
   display: none;
 }
 
-.site-header .menu-links li a {
-  color: #fff;
-}
-
-@media (max-width: $widthTabletPortrait) {
+@media (max-width: $tabletPortraitWidth) {
   .site-header .menu-links li.active a {
     background: #0003;
     border-radius: 4px;
@@ -141,7 +93,7 @@ body:not(.home) .site-header {
   }
 }
 
-@media (min-width: $widthTabletPortrait) {
+@media (min-width: $tabletPortraitWidth) {
   .site-header .menu-links {
     display: flex;
     align-items: baseline;
@@ -152,7 +104,6 @@ body:not(.home) .site-header {
   }
 
   .site-header .menu-links li {
-    font-size: 18px;
     margin: 0;
     margin-left: 6px;
 
@@ -162,9 +113,12 @@ body:not(.home) .site-header {
   }
 
   .site-header .menu-links li.search {
+    margin: 0;
+
     span {
       display: none;
     }
+
     svg {
       display: inline;
     }
@@ -175,6 +129,7 @@ body:not(.home) .site-header {
     padding: 6px 8px;
     transition: .25s ease-out;
   }
+  
   .site-header .menu-links li:not(.search) a:hover:not(:focus) {
     background: #0003;
     border-radius: 4px;
@@ -182,7 +137,6 @@ body:not(.home) .site-header {
 }
 
 .site-header .page-highlights {
-  color: #fff;
   padding: 24px 0;
 }
 

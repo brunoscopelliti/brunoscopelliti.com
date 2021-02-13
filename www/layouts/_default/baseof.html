@@ -17,12 +17,22 @@
     {{ $stylesheet := resources.Get "scss/style.scss" | toCSS (dict "targetPath" "css/style.css" "outputStyle" "compressed") | fingerprint }}
     <link rel="stylesheet" href="{{ $stylesheet.RelPermalink }}" integrity="{{ $stylesheet.Data.Integrity }}">
 
-    {{- block "twitter-meta" . }}{{- end }}
+    {{- block "twitter-meta" . }}
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:creator" content="{{- .Param "twitter" -}}">
+    <meta name="twitter:title" content="{{- .Title -}}">
+    <meta name="twitter:image" content="{{- .Param "twitterImage" -}}">
+    {{- end }}
 
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
+
+    {{ $globals := resources.Get "js/globals.js" | js.Build (dict "minify" true "target" "es5") }}
+    <script>
+      {{ $globals.Content | safeJS }}
+    </script>
   </head>
   <body class="{{- block "body-class" . }}{{- end }}">
     <a id="skip-nav" href="#main">Go to content</a>
@@ -38,9 +48,7 @@
               <span>Bruno Scopelliti</span>
             </a>
           {{- end }}
-          <div>
             {{- partial "site-menu.html" . -}}
-          </div>
         </div>
         <div class="page-highlights">
           {{- block "page-highlights" . }}{{- end }}

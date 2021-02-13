@@ -1,25 +1,25 @@
 .site-footer {
-  background: darken($gradientStart, 5%);
-  color: #fff;
+  @include text-minimum($weightLight);
+
+  background: $footerBgColor;
+  color: $footerColor;
 
   margin: 0;
   margin-top: 96px;
   padding: 16px 0;
 
   a {
-    color: #fff;
+    color: $footerColor;
     text-decoration: underline;
   }
 }
 
-@media (min-width: $widthTabletPortrait) {
+@media (min-width: $tabletPortraitWidth) {
   .site-footer {
     padding: 48px 0 16px;
   }
 }
 
 .site-footer .colophon {
-  font-size: 14px;
-  line-height: 18px;
   margin: 0;
 }

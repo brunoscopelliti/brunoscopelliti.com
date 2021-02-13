@@ -1,0 +1,23 @@
+$homelinkSize: 48px;
+
+.site-header .home-link-wrapper {
+  @include center-inline($homelinkSize);
+}
+.site-header .home-link {
+  border: 1px solid #fff;
+  border-radius: 1px;
+  display: inline-block;
+  @include center-inline(36px, 2px);
+}
+
+.site-header .avatar-home-link {
+  .avatar-frame {
+    @include square($homelinkSize);
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+  img {
+    margin: 0;
+    width: 100%;
+  }
+}

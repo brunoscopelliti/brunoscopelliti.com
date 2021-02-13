@@ -1,29 +1,52 @@
 {{ define "main-content" }}
-<h1 class="page-title">Search</h1>
-
-<div class="search-box">
-  <input type="search" name="query" placeholder="Enter a keyword" />
-
-  <ul class="keywords">
-    {{ range $term, $taxonomy := .Site.Taxonomies.categories }}
-      {{ $termUrl := replace $term "." "" }}
-      {{ $termUrl := replace $termUrl "#" "-sharp" }}
-      <li>
-        <a class="keyword" href="/blog/search/{{ $termUrl | urlize }}">{{ $term }}</a>
-      </li>
-    {{ end }}
-  </ul>
-
-</div>
-
-
-
-
-{{ range (where .Site.Pages "Type" "blog").GroupByDate "2006" }}
-<h2>{{ .Key }}</h2>
-{{ range .Pages }}
-<p>{{.Title}}</p>
-{{ end }}
-{{ end }}
-
+<article class="taxonomy">
+  <h1>Search</h1>
+  <section>
+    <div class="search-box">
+      <div class="blog-search">
+        <input data-js="posts-search" type="search" name="query" placeholder="Enter one, or more comma-separated keywords" />
+        <span data-js="posts-count" class="blog-posts-count">
+          {{- sub (len (where .Site.Pages "Type" "blog")) 1 -}}
+        </span>
+      </div>
+      <ul class="keywords" data-js="keywords">
+        {{ range $term, $taxonomy := .Site.Taxonomies.categories }}
+          {{ $cleanTerm := replace $term "#" "-sharp" }}
+          {{ $cleanTerm := $cleanTerm | urlize }}
+          {{ $cleanTerm := replace $cleanTerm "-sharp" "#" }}
+          <li>
+            <button type="button" class="keyword" data-keyword="{{ $cleanTerm }}">
+              {{- $taxonomy.Page.Title -}}
+              <span class="keyword-count" aria-label="Number of results for {{ $taxonomy.Page.Title }}.">
+                {{- $taxonomy.Count -}}
+              </span>
+            </button>
+          </li>
+          {{ if eq $cleanTerm "javascript" }}
+            <li class="toggle-keywords toggle-keywords-more">
+              <button type="button" data-js="more-keyword">
+                Show all {{ len $.Site.Taxonomies.categories }} tags
+              </button>
+            </li>
+          {{ end }}
+        {{ end }}
+        <li class="toggle-keywords toggle-keywords-less">
+          <button type="button" data-js="less-keyword">Show less</button>
+        </li>
+      </ul>
+      <p class="google-search">
+        If you can't find what you're looking for with this, try <a href="https://www.google.com/search?q=site%3Abrunoscopelliti.com%2Fblog+react">using Google</a>.
+      </p>
+    </div>
+  </section>
+  <section class="page-taxonomy-body">
+    <h2>Chronological archive</h2>
+    <p class="hidden" data-js="no-results">No results for current search.</p>
+    {{- partial "chrono-list-page.html" ((where .Site.Pages "Type" "blog").GroupByDate "2006") -}}
+  </section>
+</article>
+{{ $searchboxController := resources.Get "js/searchbox.js" | js.Build (dict "minify" true "target" "es5") }}
+<script>
+  {{ $searchboxController.Content | safeJS }}
+</script>
 {{ end }}

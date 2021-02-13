@@ -1,7 +1,13 @@
 {{ define "main-content" }}
-<h1>Result for {{ .Page.Title }}</h1>
-
-{{ range .Pages }}
-<p>{{ .Title }}</p>
-{{ end }}
+<h1>Articles on "{{ .Page.Title }}"</h1>
+<section class="page-taxonomy-body">
+  {{with .Content}}
+  <div class="taxonomy-description">
+    <h2>{{$.Page.Title}}</h2>
+    {{.}}
+  </div>
+  {{end}}
+  <h2>Chronological archive</h2>
+  {{- partial "chrono-list-page.html" (.Pages.GroupByDate "2006") -}}
+</section>
 {{ end }}

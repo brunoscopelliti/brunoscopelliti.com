@@ -1,4 +1,4 @@
-baseURL = "https://blognotes.github.io/"
+baseURL = "https://brunoscopelliti.com/"
 languageCode = "en-us"
 title = "Bruno Scopelliti"
 
@@ -9,6 +9,13 @@ paginate = 5
   twitterImage = "TODO"
 
 [markup]
+  defaultMarkdownHandler = "goldmark"
+  [markup.goldmark.renderer]
+    unsafe= true
+  [markup.goldmark.extensions]
+    [markup.goldmark.parser]
+      autoHeadingID = true
+      autoHeadingIDType = "github"
   [markup.highlight]
     anchorLineNos = false
     codeFences = true
@@ -22,8 +29,6 @@ paginate = 5
     style = "dracula"
     pygmentsUseClasses = true
     tabWidth = 2
-  [markup.goldmark.renderer]
-    unsafe= true
 
 [taxonomies]
   category = "categories"

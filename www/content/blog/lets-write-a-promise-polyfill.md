@@ -5,7 +5,7 @@ aliases:
 preview: "Everybody in this industry know the ancient wisdom for which it's better avoid reinventing the wheel. Anyway, that's often necessary to really understand how things work."
 date: 2018-02-26T09:00:00+01:00
 meta_description: "JavaScript Promise shim, polyfill built from scratch"
-categories: "JavaScript"
+categories: ["JavaScript", "Promise"]
 layout: "post"
 changefreq: "yearly"
 lastmod: 2021-01-01T09:00:00+01:00

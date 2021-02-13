@@ -3,7 +3,7 @@ title: "SASS Cheatsheet"
 preview: "In which I share with you my SASS cheatsheet."
 date: 2013-03-20T09:00:00+01:00
 meta_description: "My personal SASS cheatsheet"
-categories: "CSS"
+categories: ["SASS", "CSS", "memo"]
 layout: "post"
 changefreq: "yearly"
 lastmod: 2021-01-01T09:00:00+01:00

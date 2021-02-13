@@ -3,7 +3,7 @@ title: "Blog re-style (+ bonus: three WordPress tricks)"
 preview: "Three WordPress tricks I learned when I restyled my blog."
 date: 2013-05-30T09:00:00+01:00
 meta_description: "Three WordPress tricks I learned"
-categories: ""
+categories: ["Meta", "WordPress"]
 layout: "post"
 changefreq: "yearly"
 lastmod: 2021-01-01T09:00:00+01:00

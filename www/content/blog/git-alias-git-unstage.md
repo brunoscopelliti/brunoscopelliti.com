@@ -5,7 +5,7 @@ aliases:
 preview: "One of the hidden gems of git is the possibility for the developer to define their own alias for common commands."
 date: 2017-05-05T09:00:00+01:00
 meta_description: "How to configure git alias"
-categories: "git"
+categories: ["Tools", "git", "memo"]
 layout: "post"
 changefreq: "yearly"
 lastmod: 2021-01-01T09:00:00+01:00

@@ -5,7 +5,7 @@ aliases:
 preview: "This probably isn't a ground breaking news, but surely relevant if you work with Node.js."
 date: 2017-05-16T09:00:00+01:00
 meta_description: "How to use util.promisify in Node.js"
-categories: "Node.js"
+categories: ["node.js", "Promise"]
 layout: "post"
 changefreq: "yearly"
 lastmod: 2021-01-01T09:00:00+01:00

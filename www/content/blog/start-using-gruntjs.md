@@ -3,7 +3,7 @@ title: "Getting started with Grunt"
 preview: "Recently I started learning/using Grunt; I am surprised by how easy is to get started. In this post I share what I learned."
 date: 2013-05-28T09:00:00+01:00
 meta_description: "Getting started with Grunt, the automatic task runner made in Node.js"
-categories: "Grunt"
+categories: ["Tools", "Grunt"]
 layout: "post"
 changefreq: "yearly"
 lastmod: 2021-01-01T09:00:00+01:00

@@ -5,7 +5,7 @@ aliases:
 preview: "That's something really simple, and yet extremely effective, especially if you're the kind of developer, who is often switching context ..."
 date: 2016-12-03T09:00:00+01:00
 meta_description: "I share a simple tip I use to speed up my workflow"
-categories: "git"
+categories: ["Tools", "git"]
 layout: "post"
 changefreq: "yearly"
 lastmod: 2021-01-01T09:00:00+01:00

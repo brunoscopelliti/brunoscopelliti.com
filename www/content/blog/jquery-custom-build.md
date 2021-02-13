@@ -3,7 +3,7 @@ title: "jQuery custom build"
 preview: "jQuery is a great library, but sometimes its almost 100 Kb of sweetness are a price we cannot pay. Using a custom build of jQuery might be a good trade-off."
 date: 2013-04-09T12:27:05+01:00
 meta_description: "How to produce a jQuery custom build"
-categories: "jQuery"
+categories: ["Tools", "jQuery"]
 layout: "post"
 changefreq: "yearly"
 lastmod: 2021-01-01T09:00:00+01:00

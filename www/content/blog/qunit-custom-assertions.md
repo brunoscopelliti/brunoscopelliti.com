@@ -5,7 +5,7 @@ aliases:
 preview: "I think custom assertions are great, because in a concise manner, they make extremely clear what a test is for. You should definetely give them a try."
 date: 2017-01-17T09:00:00+01:00
 meta_description: "Explore QUnit custom assertion in JavaScript tests"
-categories: "Testing"
+categories: ["Tests", "JavaScript"]
 layout: "post"
 changefreq: "yearly"
 lastmod: 2021-01-01T09:00:00+01:00

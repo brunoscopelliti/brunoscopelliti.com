@@ -3,7 +3,7 @@ draft: true
 title: "Add external link"
 date: 2021-01-18T17:44:31+01:00
 meta_description: ""
-categories: "Hugo"
+categories: ["Meta", "Hugo"]
 layout: "post"
 changefreq: "yearly"
 lastmod: 2021-01-01T09:00:00+01:00

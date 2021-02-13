@@ -2,10 +2,10 @@
 title: "A simple Babel optimization I recently learned"
 aliases:
   - /a-simple-babel-optimization-i-recently-learned/
-preview: "I've started to use Babel when it was still called 6to5, but just recently I learned that it permits to customize, and optimize its generated output."
+preview: "I've started to use Babel when it was still called 6to5, but just recently I learned that it permits to optimize its generated output."
 date: 2018-05-08T09:00:00+01:00
 meta_description: "Optimize Babel's output payload with babel-runtime plugin."
-categories: "Babel"
+categories: ["Tools", "Babel"]
 layout: "post"
 changefreq: "yearly"
 lastmod: 2021-01-01T09:00:00+01:00
@@ -23,7 +23,7 @@ For example, a class declaration `class Foo {}` gets transpiled as:
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var Foo = function Foo() {
+var Foo = function Foo () {
   _classCallCheck(this, Foo);
 };
 ```
@@ -63,7 +63,7 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 
 var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
 
-module.exports = function Foo() {
+module.exports = function Foo () {
   (0, _classCallCheck2.default)(this, Foo);
 };
 ```
@@ -120,7 +120,7 @@ With this configuration, the generated output of the initial example becomes:
 ```js
 "use strict";
 
-var Foo = function Foo() {
+var Foo = function Foo () {
   babelHelpers.classCallCheck(this, Foo);
 };
 ```

@@ -3,7 +3,7 @@ title: "AngularJS promise, or dealing with asynchronous requests in AngularJS"
 preview: "In this post you'll discover the typical use cases of promise in AngularJS apps."
 date: 2013-04-02T09:00:00+01:00
 meta_description: "In this post you'll discover the typical use cases of promise in AngularJS apps."
-categories: "AngularJS"
+categories: ["AngularJS", "Promise"]
 layout: "post"
 changefreq: "yearly"
 lastmod: 2021-01-01T09:00:00+01:00

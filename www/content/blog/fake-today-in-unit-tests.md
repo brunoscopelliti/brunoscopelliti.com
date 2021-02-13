@@ -3,7 +3,7 @@ title: "Fake today in unit tests"
 preview: "In this post I share my approach I share my approach to have a \"fake today\" in unit tests."
 date: 2015-03-25T09:00:00+01:00
 meta_description: "Unit tests mock date"
-categories: "Testing"
+categories: ["Tests", "JavaScript"]
 layout: "post"
 changefreq: "yearly"
 lastmod: 2021-01-01T09:00:00+01:00

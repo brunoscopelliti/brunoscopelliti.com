@@ -5,7 +5,7 @@ aliases:
 preview: "One aspect in which async/await really shine is error handling, but there's a caveat you'd be better be aware of."
 date: 2017-11-08T09:00:00+01:00
 meta_description: "Dealing with exceptions. Error handling in Async functions."
-categories: "JavaScript"
+categories: ["JavaScript", "Promise"]
 layout: "post"
 changefreq: "yearly"
 lastmod: 2021-01-01T09:00:00+01:00

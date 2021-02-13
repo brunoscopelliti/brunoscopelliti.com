@@ -3,7 +3,7 @@ title: "ES2015 modules today"
 preview: "ES2015 was published in June this year; it included a new standard for modules... even if browsers don't support it yet, JSPM allows to use it already."
 date: 2015-08-19T09:00:00+01:00
 meta_description: "JSPM and ES2015 modules"
-categories: "JavaScript"
+categories: ["Tools", "JavaScript"]
 layout: "post"
 changefreq: "yearly"
 lastmod: 2021-01-01T09:00:00+01:00

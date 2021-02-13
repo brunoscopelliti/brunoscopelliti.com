@@ -5,7 +5,7 @@ aliases:
 preview: "Until recently I watched at those people able to squash git commits as magicians. I've probably overestimated them a bit, and now that I've finally learned the trick, I want to celebrate, and share the process with this post."
 date: 2017-01-23T09:00:00+01:00
 meta_description: "git rebase, how to forge git history to your wants"
-categories: "git"
+categories: ["Tools", "git", "memo"]
 layout: "post"
 changefreq: "yearly"
 lastmod: 2021-01-01T09:00:00+01:00

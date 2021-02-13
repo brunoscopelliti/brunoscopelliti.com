@@ -5,7 +5,7 @@ aliases:
 preview: "I hope writing it down helps me remember how to disable an ESLint rule via comment."
 date: 2016-09-16T09:00:00+01:00
 meta_description: "Disable ESLint rule via JavaScript comment"
-categories: "ESlint"
+categories: ["Tools", "ESlint", "memo"]
 layout: "post"
 changefreq: "yearly"
 lastmod: 2021-01-01T09:00:00+01:00

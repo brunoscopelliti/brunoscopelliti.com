@@ -1,6 +1,6 @@
 ---
 draft: true
-title: "How to Delete Keychain Entries on MacOS"
+title: "How to delete keychain entries on MacOS"
 preview: ""
 date: 2021-01-25T12:27:05+01:00
 meta_description: ""

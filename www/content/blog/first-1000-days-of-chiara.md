@@ -5,7 +5,7 @@ aliases:
 preview: "TDD, and Functional Programming applied to accomplish a real world feature request."
 date: 2016-09-28T09:00:00+01:00
 meta_description: "TDD, and Functional Programming applied in JavaScript programming"
-categories: "JavaScript"
+categories: ["JavaScript", "Personal"]
 layout: "post"
 changefreq: "yearly"
 lastmod: 2021-01-01T09:00:00+01:00

@@ -5,7 +5,7 @@ aliases:
 preview: "The story of how I migrated on HTTPS... for free."
 date: 2016-09-07T09:00:00+01:00
 meta_description: "How I migrated my blog to HTTPS using letsencrypt"
-categories: "DevOps"
+categories: ["Meta", "DevOps"]
 layout: "post"
 changefreq: "yearly"
 lastmod: 2021-01-01T09:00:00+01:00

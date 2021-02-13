@@ -5,7 +5,7 @@ aliases:
 preview: "I've published on GitHub a series to help make sense of WebPack."
 date: 2016-12-12T09:00:00+01:00
 meta_description: "A progressive webpack 2 configuration demo/tutorial."
-categories: "WebPack"
+categories: ["Tools", "WebPack"]
 layout: "post"
 changefreq: "yearly"
 lastmod: 2021-01-01T09:00:00+01:00

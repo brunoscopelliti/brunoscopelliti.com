@@ -5,7 +5,7 @@ aliases:
 preview: "Recently I've changed how fonts are loaded on my personal blog."
 date: 2017-03-25T09:00:00+01:00
 meta_description: "How to load fonts asyncronously with typekit/webfontloader"
-categories: "Web Perf"
+categories: ["Meta", "Web Perf"]
 layout: "post"
 changefreq: "yearly"
 lastmod: 2021-01-01T09:00:00+01:00

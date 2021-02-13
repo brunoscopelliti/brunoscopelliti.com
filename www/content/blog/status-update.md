@@ -3,7 +3,7 @@ title: "Status update"
 preview: "I'm going to start writing on regular basis... stay tuned."
 date: 2016-08-31T09:00:00+01:00
 meta_description: "Blog updates"
-categories: ""
+categories: "Personal"
 layout: "post"
 changefreq: "yearly"
 lastmod: 2021-01-01T09:00:00+01:00

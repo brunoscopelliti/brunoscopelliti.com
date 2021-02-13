@@ -3,7 +3,7 @@ title: "CSS3 box-sizing property"
 preview: "I can't remember how box-sizing works; hope writing it down helps."
 date: 2013-04-30T09:00:00+01:00
 meta_description: "About new CSS3 box-sizing prop"
-categories: "CSS"
+categories: ["CSS", "memo"]
 layout: "post"
 changefreq: "yearly"
 lastmod: 2021-01-01T09:00:00+01:00

@@ -3,7 +3,7 @@ title: "Bye 2013, Welcome 2014"
 preview: "In 2013 I started this blog; what's next?"
 date: 2013-12-30T09:00:00+01:00
 meta_description: "A short post to close my first year of blogging."
-categories: ""
+categories: "Personal"
 layout: "post"
 changefreq: "yearly"
 lastmod: 2021-01-01T09:00:00+01:00

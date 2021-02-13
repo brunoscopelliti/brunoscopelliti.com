@@ -5,7 +5,7 @@ aliases:
 preview: "A recent support I've had to open to Apple has given me the opportunity to reflect on my work; I'm doing some terrible mistakes."
 date: 2016-10-23T09:00:00+01:00
 meta_description: "History, and thoughts of a support ticket for Apple"
-categories: ""
+categories: ["Thoughts", "Personal"]
 layout: "post"
 changefreq: "yearly"
 lastmod: 2021-01-01T09:00:00+01:00

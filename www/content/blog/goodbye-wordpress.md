@@ -3,7 +3,7 @@ title: "Goodbye WordPress 👋"
 preview: "WordPress powered my blog for more than two years, now. Today I am switching to Jekyll... in this post the rationale beyond my choice."
 date: 2015-02-21T09:00:00+01:00
 meta_description: "Why I am switching from WordPress to Jekyll"
-categories: ""
+categories: "Meta"
 layout: "post"
 changefreq: "yearly"
 lastmod: 2021-01-01T09:00:00+01:00

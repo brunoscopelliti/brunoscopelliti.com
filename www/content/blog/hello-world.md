@@ -3,7 +3,7 @@ title: "Hello, World!"
 preview: "Hello, world! I am starting a blog to collect what I learn at work."
 date: 2013-02-15T09:00:00+01:00
 meta_description: "First blog post on Bruno Scopelliti's blog."
-categories: ""
+categories: "Personal"
 layout: "post"
 changefreq: "yearly"
 lastmod: 2021-01-01T09:00:00+01:00

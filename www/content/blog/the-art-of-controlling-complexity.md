@@ -5,7 +5,7 @@ aliases:
 preview: "Marijn Haverbeke, in Eloquent Javascript, gives a definition of  \"programming\" that resonates a lot with me."
 date: 2016-09-01T09:00:00+01:00
 meta_description: "Programming is the art of controlling complexity"
-categories: "Links"
+categories: ["Links", "Programming"]
 layout: "post"
 changefreq: "yearly"
 lastmod: 2021-01-01T09:00:00+01:00

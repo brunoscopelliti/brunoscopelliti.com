@@ -24,8 +24,8 @@ $zSkipNavigation: 99999;
 /**
  * links
  */
-$linkColor: #60f;
-$linkColorOnFocus: darken($linkColor, 15%);
+$linkColor: #751aff;
+$linkColorOnFocus:  #4700b3;
 
 /**
  * inputs
@@ -44,26 +44,27 @@ $pageContentMaxWidth: 800px;
 $pageSidePadding: 16px;
 $pageSidePadding_tabletPortrait: 64px;
 
-// Gradient adapted from https://uigradients.com/
-$headerBackground: linear-gradient(30deg, #544a7d 30%, #ffd452 180%); 
+$headerBgColor: #192039;
 $headerColor: #fff;
 
-$footerBgColor: #412d90;
+$footerBgColor: #192039;
 $footerColor: #fff;
 
+$contactFormBgColor: #4d3fdb;
+
 $tagBgColor: #efecfc;
-$tagColor: darken(#60f, 5%);
-$tagSelectedBgColor: lighten(#60f, 20%);
+$tagColor: #4700b3;
+$tagSelectedBgColor: #4700b3;
 $tagSelectedColor: #fff;
 
-$textHighlightColor: #60f;
+$textHighlightColor: #4700b3;
 
 /**
  * post lists
  */
 
 $titleLinkColor: #000;
-$titleLinkColorOnFocus: #60f;
+$titleLinkColorOnFocus: #4700b3;
 
 $paginationCurrentPageColor: #555;
 
@@ -77,6 +78,6 @@ $dateColor: #555;
  * post
  */
 
-$blockquoteBorderColor: #60f;
+$blockquoteBorderColor: #4700b3;
 
 $footnoteBorderColor: #999;

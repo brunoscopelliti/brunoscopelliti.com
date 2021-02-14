@@ -64,6 +64,7 @@
 
     <footer class="site-footer">
       <div class="site-width-wrapper">
+        {{- partial "contact-form.html" . -}}
         <p class="colophon">2013 ~ {{ now.Format "2006"}} {{ .Site.Title }}
           <br/>Built with <a href="https://gohugo.io/" title="Hugo" target="_blank" rel="noopener noreferrer">Hugo</a>.
         </p>

@@ -1,7 +1,5 @@
 .site-header {
-  background: $headerBackground;
-  background-position: center right, center left;
-  background-repeat: no-repeat;
+  background-color: $headerBgColor;
 
   color: $headerColor;
 
@@ -25,7 +23,6 @@
   appearance: none;
   border: 0;
   background: none;
-  cursor: pointer;
   outline-color: $outlineColor;
 
   position: relative;
@@ -54,7 +51,7 @@
     flex-direction: column;
     justify-content: center;
 
-    background: $headerBackground;
+    background-color: $headerBgColor;
 
     @include fullscreen;
     z-index: $zIndexMenu;
@@ -87,7 +84,7 @@
 
 @media (max-width: $tabletPortraitWidth) {
   .site-header .menu-links li.active a {
-    background: #0003;
+    background: #fff3;
     border-radius: 4px;
     padding: 5px 12px;
   }
@@ -131,7 +128,7 @@
   }
   
   .site-header .menu-links li:not(.search) a:hover:not(:focus) {
-    background: #0003;
+    background: #fff3;
     border-radius: 4px;
   }
 }

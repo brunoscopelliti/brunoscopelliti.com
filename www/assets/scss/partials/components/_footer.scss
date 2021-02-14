@@ -5,7 +5,7 @@
   color: $footerColor;
 
   margin: 0;
-  margin-top: 96px;
+  margin-top: 128px;
   padding: 16px 0;
 
   a {
@@ -21,5 +21,7 @@
 }
 
 .site-footer .colophon {
-  margin: 0;
+  margin: 32px 0 0;
 }
+
+@import "partials/components/contact-form";

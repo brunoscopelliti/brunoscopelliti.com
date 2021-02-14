@@ -1,0 +1,24 @@
+<div class="contact-form">
+  <h2>Contact me</h2>
+  {{- partial "svg/airplane.html" . -}}
+  <form action="https://formspree.io/f/xwkwjvzd" method="POST" data-js="contact">
+    <div class="form-field">
+      <label>
+        Your email:
+        <input type="email" name="email" autocomplete="off" placeholder="you@example.com"/>
+      </label>
+    </div>
+    <div  class="form-field">
+      <label>
+        Message:
+        <textarea type="text" name="message" rows="7" placeholder="Hi Bruno!"></textarea>
+      </label>
+    </div>
+    <button type="submit" class="btn-submit">Send</button>
+    <div class="error" data-js="result"></div>
+  </form>
+</div>
+{{ $contactController := resources.Get "js/contact.js" | js.Build (dict "minify" true "target" "es5") }}
+<script>
+  {{ $contactController.Content | safeJS }}
+</script>

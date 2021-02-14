@@ -1,0 +1,14 @@
+.site-footer .socials {
+  margin: 0;
+  margin-top: 24px;
+}
+
+.socials a {
+  padding: 4px 6px;
+}
+
+@media (min-width: ($iphonePortraitWidth * 1.25)) {
+  .site-footer .socials {
+    margin: 0;
+  }
+}

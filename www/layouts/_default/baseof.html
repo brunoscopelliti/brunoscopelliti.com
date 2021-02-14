@@ -48,7 +48,7 @@
               <span>Bruno Scopelliti</span>
             </a>
           {{- end }}
-            {{- partial "site-menu.html" . -}}
+          {{- partial "site-menu.html" . -}}
         </div>
         <div class="page-highlights">
           {{- block "page-highlights" . }}{{- end }}
@@ -64,7 +64,10 @@
 
     <footer class="site-footer">
       <div class="site-width-wrapper">
-        {{- partial "contact-form.html" . -}}
+        <div class="footer-content">
+          {{- partial "contact-form.html" . -}}
+          {{- partial "socials.html" . -}}
+        </div>
         <p class="colophon">2013 ~ {{ now.Format "2006"}} {{ .Site.Title }}
           <br/>Built with <a href="https://gohugo.io/" title="Hugo" target="_blank" rel="noopener noreferrer">Hugo</a>.
         </p>

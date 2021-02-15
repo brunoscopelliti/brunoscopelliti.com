@@ -23,6 +23,9 @@
         <span>Search</span>
       </a>
     </li>
+    <li class="socials">
+      {{- partial "socials.html" (dict "iconColor" "#fff" "iconSize" "24px") -}}
+    </li>
   </ul>
 </nav>
 {{ $menuController := resources.Get "js/menu.js" | js.Build (dict "minify" true "target" "es5") }}

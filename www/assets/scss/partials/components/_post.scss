@@ -18,7 +18,8 @@ article.post .post-body {
     margin: 0;
   }
 
-  p code {
+  li code,
+  p code, {
     @include tag();
 
     margin: 0 1px;

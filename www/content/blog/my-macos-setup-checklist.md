@@ -43,7 +43,7 @@ Recently learned a shortcut - `CMD + Shift + .` - to toggle quickly between two 
 
 - [VSCode](https://code.visualstudio.com/)
 
-  I usually install `code`command into the PATH directly from vscode.
+  I usually install `code` command into the PATH directly from vscode.
 
   Recently had a problem that after exit vscode the command is removed from the PATH.
 
@@ -120,11 +120,10 @@ git config --global gpg.program gpg
 git config --global user.signingkey *****
 ```
 
-Recently I got the `gpg failed to write commit object` error on the first commit; as workaround, create and sign a file.
+Recently I got the `gpg failed to write commit object` error on the first commit; to fix this issue I found I had to set the `GPG_TTY` environment variable:
 
 ```txt
-touch a.txt
-gpg --sign a.txt
+export GPG_TTY=$(tty)
 ```
 
 ## Node.js

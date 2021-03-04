@@ -2,7 +2,9 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:creator" content="{{- .Param "twitter" -}}">
 <meta name="twitter:title" content="{{- .Title -}}">
-<meta name="twitter:image" content="{{- .Param "twitterImage" -}}">
+{{ $cleanTitle := replace .Title "#" "" }}
+{{ $cleanTitle := $cleanTitle | urlize }}
+<meta name="twitter:image" content="/images/post-cards/{{- $cleanTitle -}}.png">
 <meta name="twitter:description" content="{{ .Params.preview | truncate 200 }}">
 {{ end }}
 

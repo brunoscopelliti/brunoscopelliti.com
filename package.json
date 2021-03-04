@@ -1,0 +1,24 @@
+{
+  "name": "brunoscopelliti.com",
+  "version": "1.0.0",
+  "description": "My website (2021 edition).",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brunoscopelliti/brunoscopelliti.com.git"
+  },
+  "author": "Bruno Scopelliti",
+  "bugs": {
+    "url": "https://github.com/brunoscopelliti/brunoscopelliti.com/issues"
+  },
+  "homepage": "https://github.com/brunoscopelliti/brunoscopelliti.com#readme",
+  "dependencies": {
+    "front-matter": "4.0.2",
+    "globby": "11.0.2",
+    "jimp": "0.16.1",
+    "pkg-dir": "5.0.0"
+  }
+}

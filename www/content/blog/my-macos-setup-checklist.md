@@ -120,7 +120,7 @@ git config --global gpg.program gpg
 git config --global user.signingkey *****
 ```
 
-Recently I got the `gpg failed to write commit object` error on the first commit; to fix this issue I found I had to set the `GPG_TTY` environment variable:
+Recently I got the `gpg failed to write commit object` error on the first commit; to fix this issue I found I had to export the `GPG_TTY` environment variable from my .zshrc file:
 
 ```txt
 export GPG_TTY=$(tty)
@@ -133,6 +133,10 @@ export GPG_TTY=$(tty)
 ## Ruby
 
 - [RVM](rvm.io), to manage multuple Ruby version.
+
+## MongoDB
+
+I followed [these instructions](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/).
 
 ## Other apps for software development
 

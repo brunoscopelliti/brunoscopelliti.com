@@ -1,5 +1,5 @@
 ---
-title: "Asynchronous Font Loading"
+title: "Asynchronous font loading"
 aliases:
   - /asynchronous-font-loading
 preview: "Recently I've changed how fonts are loaded on my personal blog."

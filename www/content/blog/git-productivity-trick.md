@@ -1,5 +1,5 @@
 ---
-title: "Git Workflow PRO Tip"
+title: "Git workflow PRO tip"
 aliases:
   - /pro-tip
 preview: "That's something really simple, and yet extremely effective, especially if you're the kind of developer, who is often switching context ..."

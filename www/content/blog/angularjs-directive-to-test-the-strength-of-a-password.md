@@ -1,5 +1,5 @@
 ---
-title: "AngularJS Directive to test the strength of a password"
+title: "AngularJS directive to test the strength of a password"
 preview: "I'm implementing an AngularJS directive to check real time the strength of a password."
 date: 2013-04-24T09:00:00+01:00
 meta_description: "AngularJS directive check password strength"

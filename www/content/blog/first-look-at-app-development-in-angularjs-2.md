@@ -1,5 +1,5 @@
 ---
-title: "First look at App Development in AngularJS 2"
+title: "First look at app development in AngularJS 2"
 preview: "A couple of weeks ago David East gave a short introduction about application development in AngularJS; this is the video of the talk, and my notes from his talk."
 date: 2015-02-26T09:00:00+01:00
 meta_description: "AngularJS 2 features preview"

@@ -34,7 +34,7 @@ const createBaseImage =
 
 const formatName =
   (title) => {
-    return title.toLowerCase().replace(/\s/g, "-").replace(/[^\w-]/g, "");
+    return title.toLowerCase().replace(/\s/g, "-").replace(/[^\w-]/g, "").replace(/-+/g, "-");
   }
 
 (async function Main () {

@@ -1,5 +1,5 @@
 ---
-title: "Building a RESTful service with AngularJS (and PHP) – Backend setup"
+title: "Building a RESTful service with AngularJS (and PHP)"
 preview: "This is a two parts post about how to integrate an AngularJS application with a RESTful service."
 date: 2013-09-03T09:00:00+01:00
 meta_description: "Implementation of a RESTful service"

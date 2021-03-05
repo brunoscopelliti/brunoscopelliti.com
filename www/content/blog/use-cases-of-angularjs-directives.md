@@ -1,5 +1,5 @@
 ---
-title: "Use Cases of AngularJS Directives"
+title: "Use cases of AngularJS directives"
 preview: "I explore AngularJS directives, and some of their typical use cases within an application."
 date: 2013-02-26T09:00:00+01:00
 meta_description: "Use case of AngularJS directives"

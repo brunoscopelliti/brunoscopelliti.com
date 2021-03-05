@@ -1,5 +1,5 @@
 ---
-title: "AngularJS Directive to check that passwords match"
+title: "AngularJS directive to check that passwords match"
 preview: "I'm implementing an AngularJS directive to validate that two passwords match."
 date: 2013-04-16T09:00:00+01:00
 meta_description: "AngularJS directive validate form password match"

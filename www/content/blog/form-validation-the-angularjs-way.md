@@ -1,5 +1,5 @@
 ---
-title: "Form Validation, The AngularJS Way"
+title: "Form validation, The AngularJS Way"
 preview: "An overview of form validation in an AngularJS web application."
 date: 2013-03-12T09:00:00+01:00
 meta_description: "Client side form validation in an AngularJS web application."

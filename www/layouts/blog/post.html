@@ -3,6 +3,7 @@
 <meta name="twitter:creator" content="{{- .Param "twitter" -}}">
 <meta name="twitter:title" content="{{- .Title -}}">
 {{ $cleanTitle := replace .Title "#" "" }}
+{{ $cleanTitle := replace $cleanTitle "+" "" }}
 {{ $cleanTitle := $cleanTitle | urlize }}
 <meta name="twitter:image" content="/images/post-cards/{{- $cleanTitle -}}.png">
 <meta name="twitter:description" content="{{ .Params.preview | truncate 200 }}">

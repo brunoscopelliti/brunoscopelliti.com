@@ -1,5 +1,5 @@
 ---
-title: "Building a RESTful web service with AngularJS (and PHP) – More power with $resource"
+title: "Building a RESTful web service with AngularJS $resource"
 preview: "This is a two parts post about how to integrate an AngularJS application with a RESTful service."
 date: 2013-09-05T09:00:00+01:00
 meta_description: "Advantages of using AngularJS's $resource, over the built-in $http service"

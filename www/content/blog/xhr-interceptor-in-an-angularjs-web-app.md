@@ -1,5 +1,5 @@
 ---
-title: "XHR Interceptor in an AngularJS web app"
+title: "XHR interceptor in an AngularJS web app"
 preview: "AngularJS allows to intercept the response coming from the server."
 date: 2013-11-19T09:00:00+01:00
 meta_description: "XHR Interceptor in an AngularJS application"

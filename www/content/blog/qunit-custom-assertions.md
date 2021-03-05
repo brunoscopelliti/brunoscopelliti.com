@@ -1,5 +1,5 @@
 ---
-title: "Custom Assertions are my favourite QUnit feature"
+title: "Custom assertions are my favourite QUnit feature"
 aliases:
   - /qunit-custom-assertions
 preview: "I think custom assertions are great, because in a concise manner, they make extremely clear what a test is for. You should definetely give them a try."

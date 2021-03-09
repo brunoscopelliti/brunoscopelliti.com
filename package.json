@@ -4,6 +4,7 @@
   "description": "My website (2021 edition).",
   "main": "index.js",
   "scripts": {
+    "start": "hugo server -D -p 3000 --source ./www",
     "publish": "hugo --source ./www && cp -R ./www/public/* ../brunoscopelliti.github.io"
   },
   "repository": {

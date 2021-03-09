@@ -7,7 +7,7 @@ meta_description: "Bruno Scopelliti's about page"
 
 Hi there 👋
 
-Apparently you and I have something in common - I am also one of those weird, curious people at whom usually happen to visit `/about` page over the web.
+Apparently you and I have something in common - I am also one of those weird, curious people at whom usually happen to visit `/about` page all over the web.
 
 <br/>
 
@@ -17,7 +17,8 @@ I currently live in Bologna, Italy. These pages are my very own home on the Inte
 
 <br/>
 
-I am blessed to have a wonderful wife, a wonderful daughter, Chiara.
+I am blessed to have a wonderful wife, and two kids, Chiara and Matteo.
+<br/>
 I still don't feel particularly comfortable in writing about my family over the Internet; however they're everything for me.
 
 <br/>
@@ -27,7 +28,7 @@ Apparently I've all the lucks!
 I've managed to do as job what I dreamed while growing up, or at least my second choice - actually I still think of me as a missed soccer player 😅
 
 I am passionate about my work, and love to learn new stuff!
-Ops, sorry... I've not said it yet explicitly: I'm a software engineer, mostly focused on frontend stack.
+Ops, sorry... I've not said it yet explicitly: I am a software engineer, mostly focused on frontend stack.
 
 <br/>
 
@@ -35,8 +36,7 @@ I started this blog in 2013, and its reasons of existence basically have never c
 
 <br/>
 
-Outside of the working hours you could still find me hacking around (mostly in the morning when everybody sleeps).
-Currently my other interests include: experimenting new game with Chiara, board games, running, and reading.
+Outside of working hours you could still find me hacking around (mostly in the morning when everybody sleep), but I also like experimenting new games with Chiara, reading One Piece, running.
 
 <br/>
 

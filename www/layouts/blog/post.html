@@ -5,7 +5,7 @@
 {{ $cleanTitle := replace .Title "#" "" }}
 {{ $cleanTitle := replace $cleanTitle "+" "" }}
 {{ $cleanTitle := $cleanTitle | urlize }}
-<meta name="twitter:image" content="/images/post-cards/{{- $cleanTitle -}}.png">
+<meta name="twitter:image" content="{{- .Site.BaseURL -}}images/post-cards/{{- $cleanTitle -}}.png">
 <meta name="twitter:description" content="{{ .Params.preview | truncate 200 }}">
 {{ end }}
 

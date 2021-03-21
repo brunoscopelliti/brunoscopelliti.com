@@ -1,12 +1,11 @@
 ---
-draft: true
 title: "My MacOS setup checklist"
 preview: "This is my checklist for new MacOS installations."
-date: 2021-02-22T23:36:17+01:00
+date: 2021-03-21T21:30:00+01:00
 meta_description: "List of programs, and configuration for new MacOS installations"
 categories: ["Tools", "memo"]
 changefreq: "yearly"
-lastmod: 2021-02-22T23:36:17+01:00
+lastmod: 2021-03-21T21:30:00+01:00
 priority: 0.7
 layout: post
 ---
@@ -144,9 +143,11 @@ I followed [these instructions](https://docs.mongodb.com/manual/tutorial/install
 
 - [Postman](https://www.postman.com/)
 
-- GIMP
+- [ngrok](https://ngrok.com/)
 
 - [Robo 3T](https://robomongo.org)
+
+- GIMP
 
 - [ImageOptim](https://imageoptim.com/)
 
@@ -158,6 +159,6 @@ I followed [these instructions](https://docs.mongodb.com/manual/tutorial/install
 
 - VLC
 
-- Stud.io, I am out of dark age
+- [Stud.io](http://stud.io/), I am out of dark age
 
 - Signal, Telegram, Slack, Whatsapp 😓

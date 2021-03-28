@@ -15,11 +15,10 @@ article.post .post-body {
 
   p {
     line-height: 30px;
-    margin: 0;
   }
 
   li code,
-  p code, {
+  p code {
     @include tag();
 
     margin: 0 1px;
@@ -83,6 +82,10 @@ article.post .post-body {
 
     padding: 9px 12px;
     padding-right: 0;
+
+    p {
+      margin: 0;
+    }
   }
 
   iframe {

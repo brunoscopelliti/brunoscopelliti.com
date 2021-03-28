@@ -12,9 +12,12 @@ lastmod: 2021-01-01T09:00:00+01:00
 priority: 0.7
 ---
 
-... Yes, I know switching context is not so much productive, but sometimes we have to; so let's better limit the issues! Here's the tip 🥁
+... Yes, I know switching context is not so much productive, but sometimes we have to;
+so let's better limit the issues! Here's the tip 🥁
 
 
-> Clone, and maintain in sync, your main working repository in at least two different folders on the same machine.
+> Clone, and maintain in sync, your main working repository in at least two different 
+folders on the same machine.
 
-Key benefit: easy to switch context when you're on a long running feature branch. Simple, and yet effective!
+Key benefit: easy to switch context when you're on a long running feature branch.
+Simple, and yet effective!

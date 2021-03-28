@@ -12,7 +12,8 @@ lastmod: 2021-01-01T09:00:00+01:00
 priority: 0.7
 ---
 
-Having recently switched to [ESLint](http://eslint.org/), I often find myself googling for how to disable a rule on a particular occurrence via JavaScript comment.
+Having recently switched to [ESLint](http://eslint.org/), I often find myself googling
+for how to disable a rule on a particular occurrence via JavaScript comment.
 
 Hope writing this will help me to memorize the syntax, I'll bookmark this page otherwise 😅.
 
@@ -23,4 +24,5 @@ alert("foo");
 alert("foo"); // eslint-disable-line no-alert
 ```
 
-It's also possible to omit the name of the rule, and in this case lint is turned off for that specific line.
+It's also possible to omit the name of the rule, and in this case lint is turned off for
+that specific line.

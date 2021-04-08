@@ -10,19 +10,32 @@ lastmod: 2021-01-01T09:00:00+01:00
 priority: 0.7
 ---
 
-This is a two parts post about how to make [RESTful](http://en.wikipedia.org/wiki/Representational_State_Transfer "Wiki: Representational state transfer (REST)") requests through an AngularJS web application.
+This is a two parts post about how to make [RESTful](http://en.wikipedia.org/wiki/Representational_State_Transfer "Wiki: Representational state transfer (REST)")
+requests through an AngularJS web application.
 
 The index of this brief series of posts is quite simple.
 
-* [**Backend setup**]({{< relref path=building-a-restful-service-with-angularjs-and-php-backend-setup.md" >}} "Setup a RESTful api") is the first post in the series. As the subtitle, its main focus is (at least this time) on the backend domain. It will tackle how to setup a RESTful web service. I used PHP for all the examples; however at least the basic concepts beyond a RESTful service are language agnostic.
+* [**Backend setup**]({{< relref path=building-a-restful-service-with-angularjs-and-php-backend-setup.md" >}} "Setup a RESTful api") is the first post in the series. As the subtitle, its main focus
+is (at least this time) on the backend domain. It will tackle how to setup a RESTful web service.
+I used PHP for all the examples; however at least the basic concepts beyond a RESTful service
+are language agnostic.
 
-* **More power with $resource** is focused on AngularJS. This post will tackle how to handle RESTful requests through a web application specifically powered by AngularJS. The publication of this post is scheduled for 5 September.
+* **More power with $resource** is focused on AngularJS. This post will tackle how to handle RESTful
+requests through a web application specifically powered by AngularJS. The publication of this post
+is scheduled for 5 September.
 
 ## $http or $resource?
 
-In all the posts about AngularJS that I wrote until now, every time that it was necessary to make an asynchronous request to the server I used the [$http](https://docs.angularjs.org/api/ng/service/$http "AngularJS api: $http") service. So now, probably you're asking yourself where do [$resource](https://docs.angularjs.org/api/ngResource/service/$resource "AngularJS api: $resource") come from.
+In all the posts about AngularJS that I wrote until now, every time that it was necessary
+to make an asynchronous request to the server I used the [$http](https://docs.angularjs.org/api/ng/service/$http "AngularJS api: $http") service. So now, probably you're asking yourself where do
+[$resource](https://docs.angularjs.org/api/ngResource/service/$resource "AngularJS api: $resource")
+come from.
 
-`$resource` is a separate, optional module of AngularJS, built over `$http`. It allows to create a javascript object that represents the data model. In this way each operation computed on the object created through it, is performed also on the server. $resource should be used instead of $http each time the web application has to deal with a RESTful web service.
+`$resource` is a separate, optional module of AngularJS, built over `$http`.
+It allows to create a javascript object that represents the data model. In this way each operation
+computed on the object created through it, is performed also on the server.
+$resource should be used instead of $http each time the web application has to deal with a RESTful
+web service.
 
 ```js
 var r = $resource(url, [defaultParameters], [customActions]);
@@ -59,11 +72,13 @@ console.info(r);
 
 ## Start using $resource
 
-As I said previously $resource is a separate module of AngularJS; it is defined in the angular-resource.js file, often downloaded with angular.js.
+As I said previously $resource is a separate module of AngularJS; it is defined
+in the angular-resource.js file, often downloaded with angular.js.
 
 To use $resource there are three easy things to do:
 
-* Include the source file, immediately after the source of angular.js, and ideally just before the end of the body.
+* Include the source file, immediately after the source of angular.js, and ideally
+just before the end of the body.
 
 ```html
 <script src="angular.js"></script>
@@ -80,7 +95,9 @@ To use $resource there are three easy things to do:
 var myApp = angular.module("myApp", ["ngResource"]);
 ```
 
-* Inject $resource everywhere it will be used. The best choice is to wrap the javascript model object into an AngularJS service, in this way we'll get each of the advantages of using services:
+* Inject $resource everywhere it will be used. The best choice is to wrap the JavaScript
+model object into an AngularJS service, in this way we'll get each of the advantages of
+using services:
 
 ```js
 myApp.factory("Books", ["$resource", function ($resource) {
@@ -96,7 +113,8 @@ myApp.factory("Books", ["$resource", function ($resource) {
 }]);
 ```
 
-At this point it is really simple to send requests to the web service, that we build in the previous post.
+At this point it is really simple to send requests to the web service, that we build
+in the previous post.
 
 Everywhere it is possible to inject the `Books` service it is possible to write:
 

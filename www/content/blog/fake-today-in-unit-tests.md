@@ -10,7 +10,8 @@ lastmod: 2021-01-01T09:00:00+01:00
 priority: 0.7
 ---
 
-If the app which you are working on is strongly influenced by the date, you definitely need a simple and consistent way to create a *fake today*, to have significant unit tests.
+If the app which you are working on is strongly influenced by the date, you definitely
+need a simple and consistent way to create a *fake today*, to have significant unit tests.
 
 I do not want to make you wait... this is the way I mock the `Date` constructor.
 
@@ -34,7 +35,8 @@ function fakeDate (fakeToday) {
 
 Let's try to understand that code.
 
-First of all I made a copy of the original `Date` function, and through the *jasmine*'s framework `spyOn` method, I created a spy on it.
+First of all I made a copy of the original `Date` function, and through the *jasmine*'s framework
+`spyOn` method, I created a spy on it.
 
 ```js
 var BuiltinDate = Date;
@@ -47,7 +49,10 @@ Now there are two cases:
 
 * `Date` was called without any parameter.
 
-  In this case it is supposed to return the date of today; so in this case we have to use the `fakeToday` variable in the closure scope, to create a fake today date. In order to create the date it's not possible to use the `Date` constructor, but we can use its copy, previously saved in the `BuiltinDate` variable.
+  In this case it is supposed to return the date of today; so in this case we have to use
+  the `fakeToday` variable in the closure scope, to create a fake today date.
+  In order to create the date it's not possible to use the `Date` constructor,
+  but we can use its copy, previously saved in the `BuiltinDate` variable.
 
 ```js
 if (args.length === 0) {
@@ -55,9 +60,11 @@ if (args.length === 0) {
 }
 ```
 
-* `Date` was called with some parameters; it accepts one argument, or a comma-separated list of arguments.
+* `Date` was called with some parameters; it accepts one argument, or a comma-separated
+list of arguments.
 
-  I used the function's `bind` method on the `BuiltinDate` constructor, called via the `apply` method, that permits to pass the parameters as an array.
+  I used the function's `bind` method on the `BuiltinDate` constructor, called via the
+  `apply` method, that permits to pass the parameters as an array.
 
 ```js
 var tmp = [null].concat(args);

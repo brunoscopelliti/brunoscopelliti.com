@@ -14,8 +14,10 @@ priority: 0.7
 
 From [Eloquent Javascript](http://eloquentjavascript.net/), by Marijn Haverbeke.
 
-> Keeping programs under control is the main problem of programming. When a program works, it is beautiful. The art of programming is the skill of controlling complexity.
+> Keeping programs under control is the main problem of programming. When a program works,
+it is beautiful. The art of programming is the skill of controlling complexity.
 
 Just a reminder, primarily for myself.
 
-As developers we not only have to *solve problems*, but do it in a way we do not harm our future-self.
+As developers we not only have to *solve problems*, but do it in a way we do
+not harm our future-self.

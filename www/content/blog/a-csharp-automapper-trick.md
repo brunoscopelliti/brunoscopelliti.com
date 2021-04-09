@@ -12,7 +12,9 @@ lastmod: 2021-01-01T09:00:00+01:00
 priority: 0.7
 ---
 
-Writing blog posts is infinitely valuable in helping me memorize new tricks; even when it does not work, I can still more easily google for myself. Today's blog post is meant to continue this glorious tradition.
+Writing blog posts is infinitely valuable in helping me memorize new tricks; even when
+it does not work, I can still more easily google for myself. Today's blog post is meant
+to continue this glorious tradition.
 
 In C# development it's pretty common to have to map fields between objects of different class.
 [Automapper](http://automapper.org/) simplifies a lot the work.
@@ -35,7 +37,8 @@ public class Product {
 }
 ```
 
-in order to copy values from `ProductDto` fields into a new `Product` instance, we've to execute Automapper's `map` method
+in order to copy values from `ProductDto` fields into a new `Product` instance,
+we've to execute Automapper's `map` method
 
 ```c#
 // ProductDto response.product
@@ -55,7 +58,9 @@ Easy peasy. That has the nice bonus effect of working even with list of objects.
 List<Product> products = Mapper.Map<List<Product>>(response.products);
 ```
 
-Let's say now that one of `Product`'s field is not defined in the source object, but it's known at run time in the context of the method that invokes the mapping. An easy way to get out this situation is
+Let's say now that one of `Product`'s field is not defined in the source object,
+but it's known at run time in the context of the method that invokes the mapping.
+An easy way to get out this situation is
 
 ```c#
 List<Product> products = Mapper.Map<List<Product>>(response.products);
@@ -65,8 +70,9 @@ foreach(var product in products) {
 }
 ```
 
-... but I cannot do this without feel guilty; even more after I've found that Automapper supports this use case almost as easily as the others.
-
+... but I cannot do this without feel guilty; even more after I've found that
+Automapper supports this use case almost as easily as the others.
+<br/>
 Let's start changing how we configure the mapping.
 
 ```c#

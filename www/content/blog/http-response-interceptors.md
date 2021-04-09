@@ -10,13 +10,21 @@ lastmod: 2021-01-01T09:00:00+01:00
 priority: 0.7
 ---
 
-I've already wrote in the past about [asynchronous requests in AngularJS]({{< relref path=angularjs-promise-or-dealing-with-asynchronous-requests-in-angularjs.md" >}} "AngularJS promise"), showing how to assign a variable a value, synchronously, even when the value is retrieved asynchronously from the server.
+I've already wrote in the past about [asynchronous requests in AngularJS]({{< relref path=angularjs-promise-or-dealing-with-asynchronous-requests-in-angularjs.md" >}} "AngularJS promise"),
+showing how to assign a variable a value, synchronously, even when the value is retrieved
+asynchronously from the server.
 
-One thing that I didn't wrote in that post, is that AngularJS allows to intercept the response coming from the server, before that the control of the execution is returned to the code that initiated the request. Have this possibility is useful for different reasons, but in general a response interceptor is needed every time the application needs to preprocess the response that it gets from the server.
+One thing that I didn't wrote in that post, is that AngularJS allows to intercept
+the response coming from the server, before that the control of the execution is returned
+to the code that initiated the request. Have this possibility is useful for different reasons,
+but in general a response interceptor is needed every time the application needs to preprocess
+the response that it gets from the server.
 
 ## How to register Response Interceptor
 
-Registering an http interceptor is not difficult, but requires the possibility to access the `$httpProvider` service provider, so generally this kind of operation is executed in the configuration section of the web application.
+Registering an http interceptor is not difficult, but requires the possibility
+to access the `$httpProvider` service provider, so generally this kind of operation
+is executed in the configuration section of the web application.
 
 ```js
 var app = angular.module("demo", ["demo.controllers"]);
@@ -107,7 +115,8 @@ app.config(["$httpProvider", function ($httpProvider) {
 
 This is everything you need to start using response interceptor.
 
-Now the response for each requests like the following will be preprocessed by the response interceptor.
+Now the response for each requests like the following will be preprocessed by the
+response interceptor.
 
 ```js
 $http.get("/my/service")

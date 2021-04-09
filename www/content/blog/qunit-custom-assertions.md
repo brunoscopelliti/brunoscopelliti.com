@@ -14,11 +14,12 @@ priority: 0.7
 
 This post is meant to share my favourite QUnit feature, *custom assertions*.
 
-Compared to other library, QUnit has not a particularly rich assertions' library; however that's not a big deal, cause QUnit makes extremely simple to extend its core assertions collection.
+Compared to other library, QUnit has not a particularly rich assertions' library;
+however that's not a big deal, cause QUnit makes extremely simple to extend its core
+assertions collection.
 
 ```js
 QUnit.assert.typeof = function (subject, expected) {
-
   // The current value of the expression
   const actual = typeof subject;
 
@@ -35,12 +36,12 @@ QUnit.assert.typeof = function (subject, expected) {
     expected,
     message
   });
-
 };
 ```
 
-The important bit here is that we're executing [QUnit internal `Assert#pushResult`](http://api.qunitjs.com/pushResult/) method.
-
+The important bit here is that we're executing
+[QUnit internal `Assert#pushResult`](http://api.qunitjs.com/pushResult/) method.
+<br/>
 The best part is that QUnit is 100% aware of this new assertion.
 
 ```js
@@ -50,14 +51,12 @@ QUnit.test("An example", function (assert) {
 });
 ```
 
-That is, we receive `typeof` as member of the `assert` parameter, and it still increments QUnit internal assertion count.
+That is, we receive `typeof` as member of the `assert` parameter, and it still
+increments QUnit internal assertion count.
 
-Custom assertions are great cause make extremely clear what a test is for, and prevent code duplication. They usually are also more concise that their counterpart. Let's compare:
+Custom assertions are great cause make extremely clear what a test is for, and 
+avoid code duplication. They usually are also more concise that their counterpart. 
 
 ```js
 assert.equal(typeof foo, "function", "foo must be a function");
-
-// vs
-
-assert.typeof(foo, "function");
 ```

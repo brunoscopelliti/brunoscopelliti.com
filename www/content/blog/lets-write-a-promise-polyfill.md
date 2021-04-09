@@ -15,19 +15,23 @@ priority: 0.7
 TL:DR; You can watch me live coding a promise's polyfill on YouTube.
 Watch [Let's build a promise polyfill](https://www.youtube.com/watch?v=E_p-PVNqhZE&list=PLZYZ2RjeQoPiJcbCzArwMQXr3gr8tXCLC) playlist.
 
+We're going to build a Promise polyfill; it's the best way to understand how things
+work under the hood, after all.
 <br/>
+My goal is not to have the most performant, or feature rich, implementation, but I'll try to
+optimize for ease of readability.
 
-We're going to build a Promise polyfill; it's the best way to understand how things work under the hood, after all.
-
-My goal is not to have the most performant, or feature rich, implementation, but I'll try to optimize for ease of readability.
-
-A brief disclaimer before we even start: you might have heard that Promise are going to disappear soon, cause `async function` permit to further improve how we handle asynchronous code.
-That's only partially true, because async functions are built on top of Promise, having a solid understanding of how Promise works is important as never before.
+A brief disclaimer before we start: you might have heard that Promise are going to disappear soon,
+cause `async function` permit to further improve how we handle asynchronous code.
+That's only partially true, because async functions are built on top of Promise,
+having a solid understanding of how Promise works is important as never before.
 
 So let's start from the very beginning: **What's a Promise?**
-
-A promise represents the result of an operation (usually an asynchronous operation), it is a wrapper around a value, that may, or may not be available sometimes in the future. We stop to care about this.
-It's useful because it permits developers to more easily work with a future value, as it was already available.
+<br/>
+A promise represents the result of an operation (usually an asynchronous operation),
+it is a wrapper around a value, that may, or may not be available sometimes in the future.
+We stop to care about this. It's useful because it permits developers to more easily
+work with a future value, as it was already available.
 
 We create a new promise using the `new` operator.
 
@@ -37,8 +41,8 @@ new Promise((resolve, reject) => {
 });
 ```
 
-Despite being a `function` under the hood, `class` in JavaScript can't be executed without the `new` operator.
-So it does make sense to model our shim as a class.
+Despite being a `function` under the hood, `class` in JavaScript can't be executed without
+the `new` operator. So it does make sense to model our shim as a class.
 
 ```js
 class Promifill {
@@ -48,7 +52,8 @@ class Promifill {
 
 A promise is characterized by its `value` and `state`.
 
-A promise could have as value, whatever existing JavaScript value. It makes sense to consider `undefined` as initial value.
+A promise could have as value, whatever existing JavaScript value.
+It makes sense to consider `undefined` as initial value.
 
 ```js
 class Promifill {
@@ -60,14 +65,17 @@ class Promifill {
 
 Differently the state could assume only three possibile *values*:
 
-* **FULFILLED**, when the operation represented by the promise has been successfully completed, and its result has been used to define promise's value.
+* **FULFILLED**, when the operation represented by the promise has been successfully completed,
+and its result has been used to define promise's value.
 
-* **REJECTED**, when the operation represented by the promise has been completed, but it failed. In this case, the reason for the failure is used to define promise's value.
+* **REJECTED**, when the operation represented by the promise has been completed, but it failed.
+In this case, the reason for the failure is used to define promise's value.
 
 * **PENDING**, when the operation represented by the promise has not yet been completed.
 
-Also, very important to remind is that once a promise is fulfilled, or rejected, there's no way its value, and state could be further modified.
-
+Also, very important to remind is that once a promise is fulfilled, or rejected, 
+there's no way its value, and state could be further modified.
+<br/>
 Domenic Denicola has written very clearly about [the nomenclature](https://github.com/domenic/promises-unwrapping/blob/4a1c72c0fc4f9e47dbc7ae866970caf261aa46ab/docs/states-and-fates.md).
 
 ```js
@@ -112,7 +120,9 @@ constructor (executor) {
 }
 ```
 
-`resolve` takes as argument the value that should be used to define value of the promise. For now, let's consider the state of the promise as fulfilled. That's not correct... but we'll fix this later.
+`resolve` takes as argument the value that should be used to define value of the promise.
+For now, let's consider the state of the promise as fulfilled. That's not correct...
+but we'll fix this later.
 
 ```js
 const resolve =
@@ -122,7 +132,9 @@ const resolve =
   };
 ```
 
-Also `reject` takes as input parameter the value, that should be used to define the value of the promise; for a rejected promise, the reason for the rejection is considered as the value.
+Also `reject` takes as input parameter the value, that should be used to define 
+the value of the promise; for a rejected promise, the reason for the rejection 
+is considered as value.
 The state in this case could be safely assumed as always rejected.
 
 ```js
@@ -133,8 +145,9 @@ const reject =
   };
 ```
 
-The biggest flaw in current implementation is that it gives everybody free access to promise's internal state and value. Native promises keep this data into *internal slots*.
-
+The biggest flaw in current implementation is that it gives everybody free access to
+promise's internal state and value. Native promises keep this data into *internal slots*.
+<br/>
 It's not possible to replicate internal slots in userland, but we can go pretty close.
 
 Let's start by replacing the instance's fields with readonly accessors on the class prototype.
@@ -171,7 +184,8 @@ class Promifill {
 }
 ```
 
-`resolve` and `reject` are going to shadow those fields when executing, by creating instance fields, which are not enumerable, not configurable, and not writable.
+`resolve` and `reject` are going to shadow those fields when executing, by creating
+instance fields, which are not enumerable, not configurable, and not writable.
 
 Let's create a simple utility for this job:
 
@@ -253,7 +267,8 @@ Looking at the code written so far, we can see how the `executor` is immediately
 We can't know, nor should we care, about the kind of code we're running...
 It might throw, and we should be ready for this possibility.
 
-When `executor` throws an exception, we still get back a promise, that is rejected, with the error been thrown as value.
+When `executor` throws an exception, we still get back a promise, that is rejected,
+with the error been thrown as value.
 Implementing this behaviour in our shim is pretty straightforward.
 
 ```js
@@ -296,11 +311,15 @@ class Promifill {
 ```
 
 However `onfulfill`, and `onreject` are not synchronously executed after promise's state changes.
-Their execution is asynchronous; the JavaScript engine schedules their execution as a microtask. This should guarantee that they're executed asynchronously, but anyway before any other task.
+Their execution is asynchronous; the JavaScript engine schedules their execution as a microtask.
+This should guarantee that they're executed asynchronously, but anyway before any other task.
 
-[Jake Archibald has a great post on this topic](https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/), and more recently [he has also spoken about JavaScript event loop at JSConf.Asia 2018](https://www.youtube.com/watch?v=cCOL7MC4Pl0). I absolutely recommend these resources.
+[Jake Archibald has a great post on this topic](https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/), and more recently
+[he has also spoken about JavaScript event loop at JSConf.Asia 2018](https://www.youtube.com/watch?v=cCOL7MC4Pl0). I absolutely recommend these resources.
 
-We'll see later how to mock this behaviour in our polyfill; for now the take away is that since `onfulfill`, and `onreject` are not immediately executed, we need a place to store them for when the right moment arrives.
+We'll see later how to mock this behaviour in our polyfill; for now the take away is that
+since `onfulfill`, and `onreject` are not immediately executed, we need a place to store them
+for when the right moment arrives.
 Let's prepare a such place:
 
 ```js
@@ -341,12 +360,16 @@ then (onfulfill, onreject) {
 The above implementation is still incomplete, but it's a good starting point to understand
 what's going on.
 
-We've wrapped the `onfulfill`, `onreject` functions (arguments of `then`) into another couple of functions, which capture in the closure `resolve`, and `reject`, and doing so, also the capability to resolve, reject the returned promise.
-These functions are then stored into `observers` field, so that later we can reference, and execute them.
+We've wrapped the `onfulfill`, `onreject` functions (arguments of `then`) into another couple
+of functions, which capture in the closure `resolve`, and `reject`, and doing so, also the
+capability to resolve, reject the returned promise.
+These functions are then stored into `observers` field, so that later we can reference,
+and execute them.
 
 `internalOnfulfill`, and `internalOnreject` are mostly incomplete at this point.
 
-For instance `internalOnfulfill` should also put into account the fact that `onfulfill` may not be provided, or that it may throw an exception.
+For instance `internalOnfulfill` should also put into account the fact that `onfulfill`
+may not be provided, or that it may throw an exception.
 So it's better written as:
 
 ```js
@@ -364,7 +387,8 @@ const internalOnfulfill =
   };
 ```
 
-And almost the same consideration could be done about `internalOnreject`, so that it could be rewritten as:
+And almost the same consideration could be done about `internalOnreject`, so that
+it could be rewritten as:
 
 ```js
 const internalOnreject =
@@ -437,10 +461,11 @@ const resolve =
   };
 ```
 
-We had assumed that `resolve` always produce a fulfilled promise, but this doesn't always hold true: that's not the case when the value `resolve` receives as argument is itself a promise.
+We had assumed that `resolve` always produce a fulfilled promise, but this doesn't always hold true:
+that's not the case when the value `resolve` receives as argument is itself a promise.
 
-So, first step is to determine whether a value is a promise (or better a *thenable*), or not.
-I use *duck checking* for this purpose:
+So, first step is to determine whether a value is a promise (or better a *thenable*),
+or not. I use *duck checking* for this purpose:
 
 > If it looks like a duck, swims like a duck, and quacks like a duck, then it probably is a duck.
 
@@ -490,9 +515,10 @@ However we can't simply write it like this:
 value.then(resolve, reject);
 ```
 
-Otherwise the guard on `this.settled`, that we've put in place earlier to protect the value/state from unlegitimate changes, won't permit us to proceed further.
+Otherwise the guard on `this.settled`, that we've put in place earlier to protect
+the value/state from unlegitimate changes, won't permit us to proceed further.
 We need to put in place a mechanism to bypass that safety guard.
-
+<br/>
 Sure there are different ways to make this...
 I'm going to setup a bypass mechanism based on a key that simply is not possible to have
 from outside the class' constructor.
@@ -569,7 +595,8 @@ const resolve =
 ```
 
 On the other hand, `reject` was already pretty fine.
-At the point it's executed, is already pretty clear that we're going to end up with a new rejected promise, so there's no reason to wait:
+At the point it's executed, is already pretty clear that we're going to end up with
+a new rejected promise, so there's no reason to wait:
 
 ```js
 const lateRejection = new Promise((_, reject) => {
@@ -602,11 +629,15 @@ const reject =
 
 Having fixed the `constructor`, let's recap what we've done till this point.
 
-We've in place a reliable mechanism to mark an object representing a promise as fulfilled, or rejected. We've also a way to register an handler that should be invoked as microtask - that is before any other task - when promise's fate is set.
+We've in place a reliable mechanism to mark an object representing a promise as fulfilled,
+or rejected. We've also a way to register an handler that should be invoked as
+microtask - that is before any other task - when promise's fate is set.
 
-What is still missing is something that triggers the execution of all the registered observers when a promise changes its state.
+What is still missing is something that triggers the execution of all the registered observers
+when a promise changes its state.
 
-But, at this point is not hard to find where promise's fate is defined: in the `resolve`, and `reject` functions, which are declared in the `constructor`.
+But, at this point is not hard to find where promise's fate is defined: in the `resolve`,
+and `reject` functions, which are declared in the `constructor`.
 That's the best place to schedule the observers as microtask.
 
 ```js
@@ -659,8 +690,11 @@ const reject =
 ```
 
 Let for a moment `schedule` not implemented.
-The instance's `observers` field is an `array` of `object`s, each containing an `onfulfill`, and `onreject` handler... but only one of these is effectively executed, on the basis of the promise's state.
-When `schedule` is executed the promise's state is already known, so that we can pass to `schedule` the correct handler, together with the promise's value.
+The instance's `observers` field is an `array` of `object`s, each containing an `onfulfill`,
+and `onreject` handler... but only one of these is effectively executed, on the basis of the
+promise's state.
+When `schedule` is executed the promise's state is already known, so that we can pass
+to `schedule` the correct handler, together with the promise's value.
 
 ```js
 schedule(
@@ -673,8 +707,10 @@ schedule(
 );
 ```
 
-Before moving on, it's important to consider that, `then` may happen to be called on a promise, that is already fulfilled, or rejected.
-To determine whether that's the case we can check promise's state, and consequently registering, or scheduling the observers.
+Before moving on, it's important to consider that, `then` may happen to be called on a promise,
+that is already fulfilled, or rejected.
+To determine whether that's the case we can check promise's state, and consequently registering,
+or scheduling the observers.
 
 ```js
 if (this.state === PENDING) {
@@ -700,7 +736,9 @@ The problem we're going to solve could be summerized as:
 Let's consider for now only browsers as target environment of our shim.
 Later we're going to extend it, to be environment-independent, but let's keep it simple for now.
 
-Since we're just considering browsers, we can exploit the fact that the handler passed to a [mutation observer](https://developer.mozilla.org/it/docs/Web/API/MutationObserver) is scheduled as a microtask.
+Since we're just considering browsers, we can exploit the fact that the handler passed
+to a [mutation observer](https://developer.mozilla.org/it/docs/Web/API/MutationObserver) is
+scheduled as a microtask.
 
 ```js
 const func =
@@ -715,7 +753,8 @@ setTimeout(() => console.log("A task"), 0);
 node.data = 1;
 ```
 
-In the above snippet, `func` is scheduled as microtask when `node`'s data changes, and it's invoked before the handler passed to `setTimeout`.
+In the above snippet, `func` is scheduled as microtask when `node`'s data changes,
+and it's invoked before the handler passed to `setTimeout`.
 
 ```js
 const schedule =
@@ -762,13 +801,17 @@ while (queue.length > 0 && ({ handler, value } = queue.shift())) {
 
 What do you think should happen in case `handler` throws an exception?
 
-We've sprinkled a few `try... catch`es around, which helps create rejected promises whenever an otherwise uncaught exception occurs.
+We've sprinkled a few `try... catch`es around, which helps create rejected promises
+whenever an otherwise uncaught exception occurs.
 But they are somehow overprotective.
-In fact what would have been an uncaught exception using the native built-in, is always caught somewhere in our shim.
+In fact what would have been an uncaught exception using the native built-in,
+is always caught somewhere in our shim.
 
-We’ve to re-throw the exception, immediately (not synchronously) after having marked the promise rejected.
+We’ve to re-throw the exception, immediately (not synchronously) after having marked
+the promise rejected.
 
-The only condition is that the promise's rejection remains uncaught, that is there's at least a promise's chain branch that is not recovered with `then(*, onreject)`.
+The only condition is that the promise's rejection remains uncaught, that is there's
+at least a promise's chain branch that is not recovered with `then(*, onreject)`.
 
 In order to know whether that's the case we need to know the whole promises' chain.
 So, let's start by adding to our class another field, to track the chain.
@@ -828,7 +871,8 @@ const raiseUnhandledPromiseRejectionException =
   });
 ```
 
-We can now use `raiseUnhandledPromiseRejectionException` to schedule the throwing of an exception when a promise gets rejected.
+We can now use `raiseUnhandledPromiseRejectionException` to schedule the throwing of an exception
+when a promise gets rejected.
 
 So it should be used in `reject` of course:
 
@@ -903,7 +947,8 @@ const resolve =
   };
 ```
 
-Current implementation works quite well; but it has still a few problems in some edge cases, in which it ends up throwing more than what's due. As example:
+Current implementation works quite well; but it has still a few problems in some edge cases,
+in which it ends up throwing more than what's due. As example:
 
 ```js
 const immediateRejection = new Promise((_, reject) => {
@@ -915,7 +960,8 @@ const promise = new Promise((resolve) => {
 });
 ```
 
-When a promise is resolved to a rejected promise, there should be only one throw after the promise is resolved.
+When a promise is resolved to a rejected promise, there should be only one throw after
+the promise is resolved.
 
 ```js
 const resolve =
@@ -933,7 +979,8 @@ const resolve =
   };
 ```
 
-This information is gold, and permits `raiseUnhandledPromiseRejectionException` to further restrict the condition on which it throws:
+This information is gold, and permits `raiseUnhandledPromiseRejectionException` to further
+restrict the condition on which it throws:
 
 ```js
 const raiseUnhandledPromiseRejectionException =
@@ -945,8 +992,11 @@ const raiseUnhandledPromiseRejectionException =
   });
 ```
 
-Our scheduler works now pretty well on every browsers supporting `MutationObservers`; but it throws pretty fast when executed as Node.js module. That's cause there's no such a thing as mutation observers in node.
-Let's now try to extend `schedule`, so that it works indifferently both on browsers, both in Node.js.
+Our scheduler works now pretty well on every browsers supporting `MutationObservers`;
+but it throws pretty fast when executed as Node.js module. That's cause there's no such a thing
+as mutation observers in node.
+Let's now try to extend `schedule`, so that it works indifferently both on browsers,
+both in Node.js.
 
 ```js
 const schedule =
@@ -1050,12 +1100,15 @@ const schedule =
   })();
 ```
 
-Current version works exactly how the previous implementation, but it's far easier to extend; we only need to provide a different *strategy* for Node.js, or for browsers which don't support `MutationObserver`; and that's exactly what we're going to do now.
+Current version works exactly how the previous implementation, but it's far easier to extend;
+we only need to provide a different *strategy* for Node.js, or for browsers which don't support `MutationObserver`; and that's exactly what we're going to do now.
 
-The only requirement we've is that all the strategies match the same unwritten interface, that is implement the `trigger` method.
+The only requirement we've is that all the strategies match the same unwritten interface,
+that is implement the `trigger` method.
 
 We can use the built-in `process.nextTick` to schedule a microtask in Node.js.
-I would have preferred `setImmediate`, [but it appears to not be completely reliable yet](https://github.com/nodejs/node/issues/7145).
+I would have preferred `setImmediate`,
+[but it appears to not be completely reliable yet](https://github.com/nodejs/node/issues/7145).
 
 ```js
 class NextTickStrategy {
@@ -1070,7 +1123,9 @@ class NextTickStrategy {
 }
 ```
 
-Finally in a browser that does not support `MutationObserver`, there's no way I am aware of to schedule a microtask. For such cases we can still provide a strategy that mostly works, despite not being 100% spec compliant.
+Finally in a browser that does not support `MutationObserver`, there's no way I am aware
+of to schedule a microtask. For such cases we can still provide a strategy that mostly works,
+despite not being 100% spec compliant.
 
 ```js
 class BetterThanNothingStrategy {
@@ -1085,7 +1140,9 @@ class BetterThanNothingStrategy {
 }
 ```
 
-Now that we've a lib of possible strategies, what's missing is an orchestrator, that picks the most appropriate strategy, given the current environment. Despite this sounding as a really smart move, it's as simple as writing a function, with a couple of `if`s inside.
+Now that we've a lib of possible strategies, what's missing is an orchestrator, that picks
+the most appropriate strategy, given the current environment. Despite this sounding as
+a really smart move, it's as simple as writing a function, with a couple of `if`s inside.
 
 ```js
 const getStrategy =
@@ -1104,7 +1161,8 @@ const getStrategy =
   }
 ```
 
-At this point, making the scheduler isomorphic (or universal, or whatever it's used these days) it's just a matter of replacing the hardcoded use of `MutationObserverStrategy` with the code below:
+At this point, making the scheduler isomorphic (or universal, or whatever it's used these days)
+it's just a matter of replacing the hardcoded use of `MutationObserverStrategy` with the code below:
 
 ```js
 const Strategy = getStrategy();
@@ -1112,14 +1170,19 @@ const ctrl = new Strategy(run);
 ```
 
 At this point our shim works pretty well, both on browsers, both in Node.js.
-What's still missing is to complete its public interface, with both the *instance*, and *static* methods.
+What's still missing is to complete its public interface, with both the *instance*,
+and *static* methods.
 
-Beyond `then` (that is already completed), each promise instance has two other methods, `catch` and `finally`.
+Beyond `then` (that is already completed), each promise instance has two other methods,
+`catch` and `finally`.
 
-`catch` takes as argument a function, `onreject`, that is invoked in case the promise on which `catch` is called gets rejected. It returns a new promise that is fulfilled with the value `onreject` will return.
+`catch` takes as argument a function, `onreject`, that is invoked in case the promise
+on which `catch` is called gets rejected. It returns a new promise that is fulfilled with
+the value `onreject` will return.
 This description might sound familiar... and for good reasons.
 It's pretty much what `then(*, onreject)` does.
-In fact we can think of `catch` as a shortcut for `then(null, onreject)`, and we can also implement it as such:
+In fact we can think of `catch` as a shortcut for `then(null, onreject)`, and we can
+also implement it as such:
 
 ```js
 class Promifill {
@@ -1135,12 +1198,20 @@ class Promifill {
 }
 ```
 
-`finally` is a recent addition; it is introduced with ES2018, mostly to make Promise's public api match the historic `try {} catch (error) {} finally {}` block.
+`finally` is a recent addition; it is introduced with ES2018, mostly to make Promise's public api
+match the historic `try {} catch (error) {} finally {}` block.
 
-You might need `finally` in the same scenarios you would have used the `finally` clause of a `try {} catch (error) {}` block, that is when you want the same instruction to be executed indipendently from the fact the code has thrown an exception or not.
+You might need `finally` in the same scenarios you would have used the `finally` clause of
+a `try {} catch (error) {}` block, that is when you want the same instruction to be executed
+indipendently from the fact the code has thrown an exception or not.
 
-`finally` receives as input parameter a function, `oncomplete`, that is executed when the promise on which it's called becomes fulfilled, or gets rejected. `oncomplete` does not receive anything as input parameter, neither its return value is used for something; in fact `finally` returns a new promise, that has the exact same state, and value of the promise on which `finally` has been called.
-The only case in which `finally` can produce a promise with different state, and value is when `oncomplete` throws an exception.
+`finally` receives as input parameter a function, `oncomplete`, that is executed when the promise
+on which it's called becomes fulfilled, or gets rejected. `oncomplete` does not receive anything
+as input parameter, neither its return value is used for something; in fact `finally`
+returns a new promise, that has the exact same state, and value of the promise on which
+`finally` has been called.
+The only case in which `finally` can produce a promise with different state, and value is
+when `oncomplete` throws an exception.
 
 So let's implement this behaviour:
 
@@ -1189,13 +1260,19 @@ class Promifill {
 }
 ```
 
-To complete our implementation of Promise built-in at this point we're only missing a couple of static methods.
+To complete our implementation of Promise built-in at this point we're only missing a
+couple of static methods.
 
-`Promise.resolve`, and `Promise.reject` despite some important difference are quite similar, at least for what concern the scope of usability.
-They are pretty useful in case you're not sure about a value you need to work with, and want to be sure it's a promise, or in case you know it's a promise built with a different library, and want to cast it to a genuine `Promifill` promise.
+`Promise.resolve`, and `Promise.reject` despite some important difference are quite similar,
+at least for what concern the scope of usability.
+They are pretty useful in case you're not sure about a value you need to work with,
+and want to be sure it's a promise, or in case you know it's a promise built with a different
+library, and want to cast it to a genuine `Promifill` promise.
 
 Let's talk about `Promise.resolve`.
-In case the provided value is already an original Promifill's promise it returns it unchanged. Otherwise it creates a new promise that is resolved with the provided value, following - in case it's a thenable - its `then` method.
+In case the provided value is already an original Promifill's promise it returns it unchanged.
+Otherwise it creates a new promise that is resolved with the provided value, following - in case
+it's a thenable - its `then` method.
 
 ```js
 class Promifill {
@@ -1209,9 +1286,12 @@ class Promifill {
 }
 ```
 
-Since we've implemented `Promise.resolve` on the basis of our internal `resolve` function, we've got for free the correct behaviour in case the value passed to `Promise.resolve` is a generic *thenable*.
+Since we've implemented `Promise.resolve` on the basis of our internal `resolve` function,
+we've got for free the correct behaviour in case the value passed to `Promise.resolve` is a
+generic *thenable*.
 
-`Promise.reject` creates always a new promise that is immediately rejected with the given reason. So it's pretty straightforward to implement.
+`Promise.reject` creates always a new promise that is immediately rejected with the given reason.
+So it's pretty straightforward to implement.
 
 ```js
 class Promifill {
@@ -1223,9 +1303,15 @@ class Promifill {
 }
 ```
 
-Finally the other two functions `Promise.all`, and `Promise.race` are more the kind of utilities you could find in other libraries.
+Finally the other two functions `Promise.all`, and `Promise.race` are more the kind of
+utilities you could find in other libraries.
 
-`Promise.all` receives as input an *iterable*, such as an array, and returns a new promise that is fulfilled only when all the values in the iterable are fulfilled. In this case the value of the promise is an array containing the fulfilled values of each element of the iterable. In case at least one of the element in the iterable gets rejected, the new promise is rejected as well, with the reason of the first element in the iterable been rejected.
+`Promise.all` receives as input an *iterable*, such as an array, and returns a new promise
+that is fulfilled only when all the values in the iterable are fulfilled. In this case
+the value of the promise is an array containing the fulfilled values of each element
+of the iterable. In case at least one of the element in the iterable gets rejected,
+the new promise is rejected as well, with the reason of the first element in the iterable
+been rejected.
 
 Let's implement this behaviour.
 
@@ -1265,7 +1351,9 @@ class Promifill {
 }
 ```
 
-To implement `Promise.all` behaviour, we'll need an array where to store the fulfilled value of all the element in the iterable. It starts empty, and we'll add element to it as soon as each one become fulfilled.
+To implement `Promise.all` behaviour, we'll need an array where to store the fulfilled
+value of all the element in the iterable. It starts empty, and we'll add element to it
+as soon as each one become fulfilled.
 
 So we start iterating on all the element in the iterable.
 We use `Promifill.resolve` to normalize each entry to a genuine `Promifill` object.
@@ -1294,7 +1382,8 @@ class Promifill {
 }
 ```
 
-The internal `add` method should also check that all the elements in the iterable have been fulfilled, hence resolve the new promise.
+The internal `add` method should also check that all the elements in the iterable have been
+fulfilled, hence resolve the new promise.
 
 ```js
 const add =
@@ -1306,8 +1395,11 @@ const add =
   };
 ```
 
-Current `add`'s implementation might result bugged; in fact in case the last element in the iterable is not the last element to be fulfilled/rejected `values.length === iterableSize` results `true` (`values` becomes a sparse array) and the promise becomes fulfilled too early.
-That's could be fixed by remembering that `Array#filter` skips array's hole; so that the check becomes something like:
+Current `add`'s implementation might result bugged; in fact in case the last element in the iterable
+is not the last element to be fulfilled/rejected `values.length === iterableSize`
+results `true` (`values` becomes a sparse array) and the promise becomes fulfilled too early.
+That's could be fixed by remembering that `Array#filter` skips array's hole; so that the
+check becomes something like:
 
 ```js
 const add =
@@ -1321,7 +1413,8 @@ const add =
 
 To complete `Promise.all` we need to cover a last edge case.
 What would happen in case the iterable is empty?
-Current implementation returns a promise that never gets settled; but that's not what it's supposed to do.
+Current implementation returns a promise that never gets settled; but that's not what
+it's supposed to do.
 In this case it should return a promise that's fulfilled, and has as value an empty array.
 
 So first task is to determine whether an iterable is empty.
@@ -1376,7 +1469,9 @@ class Promifill {
 ```
 
 Finally `Promise.race`.
-It accepts an iterable as input parameter, and returns a new promise, that is fulfilled, or gets rejected as soon the first element in the iterable is fulfilled, or gets rejected with that value, or reason.
+It accepts an iterable as input parameter, and returns a new promise, that is fulfilled,
+or gets rejected as soon the first element in the iterable is fulfilled, or gets rejected with
+that value, or reason.
 
 Strange enough, in case it receives an empty iterable, the promise it returns, never gets settled.
 

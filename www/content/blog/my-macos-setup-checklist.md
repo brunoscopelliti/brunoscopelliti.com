@@ -10,7 +10,9 @@ priority: 0.7
 layout: post
 ---
 
-This week I formatted my macbook, and after many years of keeping sparse notes in too many different place I decided it is time to put everything together in one place for future reference... and what best place than my freshly restyled blog.
+This week I formatted my macbook, and after many years of keeping sparse notes 
+in too many different place, I decided it is time to put everything together in one place 
+for future reference... and what best place than my freshly restyled blog.
 
 ## General preference
 
@@ -45,7 +47,6 @@ Recently learned a shortcut - `CMD + Shift + .` - to toggle quickly between two 
   I usually install `code` command into the PATH directly from vscode.
 
   Recently had a problem that after exit vscode the command is removed from the PATH.
-
   To fix this issue:
 
   `xattr Code.app` check wether vscode is quarantined (app installed from Internet usually are).
@@ -62,9 +63,8 @@ ZSH is now default shell on MacOS.
 
 ## Git
 
-[Git](https://git-scm.com/) is usually already installed on MacOS.
-
-There're a couple of things to have it properly configured.
+[Git](https://git-scm.com/) is usually already installed on MacOS, but there're a couple 
+of things to have it properly configured.
 
 ### Config
 
@@ -119,7 +119,8 @@ git config --global gpg.program gpg
 git config --global user.signingkey *****
 ```
 
-Recently I got the `gpg failed to write commit object` error on the first commit; to fix this issue I found I had to export the `GPG_TTY` environment variable from my .zshrc file:
+Recently I got the `gpg failed to write commit object` error on the first commit; 
+to fix this issue I found I had to export the `GPG_TTY` environment variable from my .zshrc file:
 
 ```txt
 export GPG_TTY=$(tty)

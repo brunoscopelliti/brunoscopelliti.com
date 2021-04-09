@@ -12,27 +12,37 @@ lastmod: 2021-01-01T09:00:00+01:00
 priority: 0.7
 ---
 
-At work, in the last couple of years I've always more, and more written C# code. It's nice, and it has lots of similarities with JavaScript.
+At work, in the last couple of years I've always more, and more written C# code.
+It's nice, and it has lots of similarities with JavaScript.
 
-Despite this, I am not such productive with C#, as I am with JavaScript, and I often find myself asking colleagues, or searching the Internet for *equivalent of JavaScript [feature] in C#*... I rarely get disappointed.
+Despite this, I am not such productive with C#, as I am with JavaScript, and I often find myself
+asking colleagues, or searching the Internet for *equivalent of JavaScript [feature] in C#*...
+I rarely get disappointed.
 
 In this post we explore the equivalent in C# of some of the most useful JavaScript array methods.
 
 ## Language INtegrated Query
 
-JavaScript has prototypal inheritance, hence *prototypes*, and all the arrays have access to the methods defined on the Array's prototype. 
-
+JavaScript has prototypal inheritance, hence *prototypes*, and all the arrays have 
+access to the methods defined on the Array's prototype. 
+<br/>
 That's why `typeof [].forEach == "function"`.
 
 So what about C#?
+<br/>
+Since .NET Framework 3.5, LINQ (Language Integrated Query) permits to work very conveniently
+with data collections, and more specifically with all the types which implement the `IEnumerable`
+or `IEnumerable<T>` interface. These types are often referred as *queryable* type.
 
-Since .NET Framework 3.5, LINQ (Language Integrated Query) permits to work very conveniently with data collections, and more specifically with all the types which implement the `IEnumerable` or `IEnumerable<T>` interface. These types are often referred as *queryable* type.
-
-**Anyway, there's an important difference**. Despite most of the methods defined on the Array prototype have a counterpart in the LINQ library, there's an important difference.
-
-LINQ methods don't return a collection (as in JavaScript occur), but a query object, that is a set of instructions about how to retrieve the data; the query itself is not executed until the program effectively tries to access those data.
-
-The best part of this all is that the query objects still implement `IEnumerable<T>`, so queries can be easily chanined (such as we're accustomed in JavaScript).
+**Anyway, there's an important difference**. Despite most of the methods defined on the
+Array prototype have a counterpart in the LINQ library, there's an important difference.
+<br/>
+LINQ methods don't return a collection (as in JavaScript occur), but a query object,
+that is a set of instructions about how to retrieve the data; the query itself is not executed
+until the program effectively tries to access those data.
+<br/>
+The best part of this all is that the query objects still implement `IEnumerable<T>`,
+so queries can be easily chanined (such as we're accustomed in JavaScript).
 
 ## Data
 
@@ -68,11 +78,14 @@ public class Order {
 }
 ```
 
-If you want quickly try one of the following snippet, you can paste it on [dotnetfiddle](https://dotnetfiddle.net/); it's like jsfiddle, but for .NET folks.
+If you want quickly try one of the following snippet, you can paste it on
+[dotnetfiddle](https://dotnetfiddle.net/); it's like jsfiddle, but for .NET folks.
 
 ## Filter
 
-[Enumerable.Where](https://msdn.microsoft.com/en-us/library/system.linq.enumerable.where.aspx) creates a new collection, that contains the only elements of the original collection which match the predicate.
+[Enumerable.Where](https://msdn.microsoft.com/en-us/library/system.linq.enumerable.where.aspx)
+creates a new collection, that contains the only elements of the original collection
+which match the predicate.
 
 ```c#
 var pizzas = order.Where(x => 
@@ -89,7 +102,9 @@ foreach (string pizza in pizzas)
 
 ## Map
 
-[Enumerable.Select](https://msdn.microsoft.com/en-us/library/system.linq.enumerable.select.aspx) creates a new collection, with the results of the execution of the provided function on each element in the original collection.
+[Enumerable.Select](https://msdn.microsoft.com/en-us/library/system.linq.enumerable.select.aspx)
+creates a new collection, with the results of the execution of the provided function
+on each element in the original collection.
 
 ```c#
 var productNames = bill.Select(x => x.Name);
@@ -108,7 +123,9 @@ Here, C# folks are lucky enough who don't have to worry about *holes* in their l
 
 ## Reduce
 
-[Enumerable.Aggregate](https://msdn.microsoft.com/en-us/library/system.linq.enumerable.aggregate.aspx) applies the provided function on each element in the original collection to generate a new value, that may (or may not) be a collection.
+[Enumerable.Aggregate](https://msdn.microsoft.com/en-us/library/system.linq.enumerable.aggregate.aspx)
+applies the provided function on each element in the original collection to generate a new value,
+that may (or may not) be a collection.
 
 ```c#
 double totalPrice = bill.Aggregate(0,
@@ -121,7 +138,8 @@ Console.WriteLine(String.Format("Total Price: {0}€", totalPrice));
 
 ## Some
 
-[Enumerable.Any](https://msdn.microsoft.com/en-us/library/system.linq.enumerable.any.aspx) determines whether the collection contains at least one element that matches the predicate.
+[Enumerable.Any](https://msdn.microsoft.com/en-us/library/system.linq.enumerable.any.aspx)
+determines whether the collection contains at least one element that matches the predicate.
 
 ```c#
 bool hasTax = bill.Any(x =>
@@ -137,7 +155,8 @@ bool isEmpty = ! bill.Any();
 
 ## Every
 
-[Enumerable.All](https://msdn.microsoft.com/en-us/library/bb548541.aspx) determines whether all the elements in the collection match the predicate.
+[Enumerable.All](https://msdn.microsoft.com/en-us/library/bb548541.aspx) determines
+whether all the elements in the collection match the predicate.
 
 ```c#
 bool isOnlyPizzaOrder = bill.All(x => 

@@ -10,10 +10,14 @@ lastmod: 2021-01-01T09:00:00+01:00
 priority: 0.7
 ---
 
-Recently I've been playing with the new ES2015 stuff. One of the things I am more excited about it, is the new module format.
+Recently I've been playing with the new ES2015 stuff. One of the things I am more excited about it,
+is the new module format.
 
-What probably not everyone knows is that it is possible to start using the new module syntax today, with tools like [jspm](http://jspm.io/ "Browser Package Manager") to polyfill the missing loader functionality of the browser.
+What probably not everyone knows is that it is possible to start using the new module syntax today,
+with tools like [jspm](http://jspm.io/ "Browser Package Manager") to polyfill the missing loader
+functionality of the browser.
 
-I published a repo on Github with basic usage examples; it's here: [ES2015 module playground](https://github.com/blog-brunoscopelliti/es6modules-playground "ECMAScript2015 module playground").
+I published a repo on Github with basic usage examples; it's here:
+[ES2015 module playground](https://github.com/blog-brunoscopelliti/es6modules-playground "ECMAScript2015 module playground").
 
 In order to run the demo on your pc, you still need node, and npm; then you have to install jspm.

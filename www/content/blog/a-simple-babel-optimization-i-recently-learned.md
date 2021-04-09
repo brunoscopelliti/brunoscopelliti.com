@@ -13,9 +13,9 @@ priority: 0.7
 ---
 
 Babel relies on a few internal functions to generate the transpiled code.
-
-These functions, when needed, are placed at the top of the generated code, so they are not inlined multiple times across a single file.
-
+<br/>
+These functions, when needed, are placed at the top of the generated code, so they are not
+inlined multiple times across a single file.
 For example, a class declaration `class Foo {}` gets transpiled as:
 
 ```js
@@ -28,19 +28,23 @@ var Foo = function Foo () {
 };
 ```
 
-Since Babel performs transpilation on single file basis, there's still the risk that these functions get duplicated across different files.
+Since Babel performs transpilation on single file basis, there's still the risk that 
+these functions get duplicated across different files.
 Of course this is not an optimal solution.
 
-Recently I've learned that it's possible to instruct Babel to do not place any declaration at the top of a file, and instead point them to a reference declared in a single shared module.
-
+Recently I've learned that it's possible to instruct Babel to do not place any declaration
+at the top of a file, and instead point them to a reference declared in a single shared module.
+<br/>
 In this post we'll learn how to achieve this goal, and what are the caveats.
 I've published a [working example](https://github.com/blog-brunoscopelliti/optimized-babel-setup) on GitHub.
 
 ## Babel's runtime to the rescue
 
-The easiest solution comes under the name of the [@babel/plugin-transform-runtime plugin](https://www.npmjs.com/package/@babel/plugin-transform-runtime).
+The easiest solution comes under the name of the
+[@babel/plugin-transform-runtime plugin](https://www.npmjs.com/package/@babel/plugin-transform-runtime).
 
-We have to install the plugin, and [@babel/runtime](https://www.npmjs.com/package/@babel/runtime) standalone module.
+We have to install the plugin, and [@babel/runtime](https://www.npmjs.com/package/@babel/runtime)
+standalone module.
 Then configure Babel to use it.
 
 ```json
@@ -81,7 +85,8 @@ First thing we've to do is to generate the helpers functions for our personal us
 To build the helpers, we'll need [@babel/cli](https://www.npmjs.com/package/@babel/cli).
 When we install it, it adds `babel-external-helpers` into `node_modules/.bin`.
 
-The executable comes with a couple of useful options, which permit to customize the module format of the generated output, or filter out the list of the generated helpers.
+The executable comes with a couple of useful options, which permit to customize 
+the module format of the generated output, or filter out the list of the generated helpers.
 
 Below the formal cli reference, and a few examples you might would like to try yourself.
 
@@ -99,9 +104,11 @@ babel-external-helpers -t umd -l createClass,classCallCheck > ./helpers.js
 
 ## Use the helpers
 
-Once we've the helpers into our working directory, we have to tell Babel to do not include those helpers in the transpiled code.
+Once we've the helpers into our working directory, we have to tell Babel to do not include 
+those helpers in the transpiled code.
 
-This is done using the [@babel/plugin-external-helpers plugin](https://www.npmjs.com/package/@babel/plugin-external-helpers).
+This is done using the
+[@babel/plugin-external-helpers plugin](https://www.npmjs.com/package/@babel/plugin-external-helpers).
 You may have to install it, and reference it in the .babelrc file.
 
 ```json
@@ -126,12 +133,13 @@ var Foo = function Foo () {
 ```
 
 In which `babelHelpers` is a global reference to Babel's internal helpers.
-
-Sadly, the [proposal to have a configurable namespace](https://github.com/babel/babel/issues/5217) didn't gain traction so far.
+Sadly, the [proposal to have a configurable namespace](https://github.com/babel/babel/issues/5217)
+didn't gain traction so far.
 
 Anyway, when we run `new Foo` we get a `ReferenceError`, because `babelHelpers` isn't defined.
 
-If we target only browsers, the solution is straightforward; we've to include the helpers before application code.
+If we target only browsers, the solution is straightforward; we've to include 
+the helpers before application code.
 
 ```html
 <script type="text/javascript" src="path/to/babel-helpers.js"></script>

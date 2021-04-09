@@ -12,9 +12,13 @@ priority: 0.7
 
 I already wrote about [intercepting XHR responses in an AngularJS web app]({{< relref path=http-response-interceptors.md" >}} "$http response interceptors"). 
 
-In the meanwhile, the method I described has been deprecated, and  *AngularJS 1.2 timely-delivery* was delivered - I really admire the guy who choose names for AngularJS releases - and we now have a stable and better way to intercept XHR requests and responses in our web app. We'll start by looking at how to define a new interceptor, using this new best practice.
+In the meanwhile, the method I described has been deprecated, and  *AngularJS 1.2 timely-delivery*
+was delivered - I really admire the guy who choose names for AngularJS releases - and we now have
+a stable and better way to intercept XHR requests and responses in our web app.
+We'll start by looking at how to define a new interceptor, using this new best practice.
 
-The following code has to be placed inside the config section of the web app (the only place of your app where the *service providers* are accessible).
+The following code has to be placed inside the config section of the web app
+(the only place of your app where the *service providers* are accessible).
 
 ```js
 $httpProvider.interceptors.push(["$q", function ($q) {
@@ -57,11 +61,15 @@ $httpProvider.interceptors.push(["$q", function ($q) {
 }]);
 ```
 
-Now that it's clear how to create XHR interceptor, let's take a look at why we should use XHR interceptor in a web application.
+Now that it's clear how to create XHR interceptor, let's take a look at why we should use
+XHR interceptor in a web application.
 
 ## XHR request interceptor
 
-It may surprise some readers, but by default in AngularJS the payload of a POST request is always in JSON format. This means that, for example, if PHP is your backend language, you won't find any data in your `$_POST` array. Instead, you can use the PHP function `file_get_contents` to read the payload.
+It may surprise some readers, but by default in AngularJS the payload of a POST request
+is always in JSON format. This means that, for example, if PHP is your backend language,
+you won't find any data in your `$_POST` array. Instead, you can use the PHP function
+`file_get_contents` to read the payload.
 
 ```php
 if(stripos($_SERVER["CONTENT_TYPE"],"application/json")==0){
@@ -69,7 +77,9 @@ if(stripos($_SERVER["CONTENT_TYPE"],"application/json")==0){
 }
 ```
 
-All this pain can be avoided with the savvy use of request interceptors. To achieve this, first change the default content-type header used by AngularJS (need more info about [request header]({{< relref path=authentication-to-a-restful-web-service-in-an-angularjs-web-app.md" >}} "Set xhr http header in an AngularJS web application")?). This should do the trick:
+All this pain can be avoided with the savvy use of request interceptors. To achieve this,
+first change the default content-type header used by AngularJS (need more info about
+[request header]({{< relref path=authentication-to-a-restful-web-service-in-an-angularjs-web-app.md" >}} "Set xhr http header in an AngularJS web application")?). This should do the trick:
 
 ```js
 $http.defaults.headers.post["Content-Type"] = 
@@ -106,7 +116,8 @@ $httpProvider.interceptors.push(["$q", function ($q) {
 
 In my experience response interceptors are particularly helpful to handle specific error case.
 
-In my previous post about XHR interceptors, I wrote about how to intercept a 401 (Unauthorized) error response. Let's rewrite that example with this new approach.
+In my previous post about XHR interceptors, I wrote about how to intercept a
+401 (Unauthorized) error response. Let's rewrite that example with this new approach.
 
 ```js
 $httpProvider.interceptors.push(["$q", function ($q) {

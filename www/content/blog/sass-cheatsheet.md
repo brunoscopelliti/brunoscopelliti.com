@@ -14,7 +14,8 @@ Few months ago, I started working with SASS - I use SCSS syntax cause I care abo
 
 It's not particularly difficult, and if you learnt CSS, well, you could learn SASS.
 
-One of the first thing I wanted was some kind of SASS cheatsheet - so I summarized the main features of SASS in a SASS file.
+One of the first thing I wanted was some kind of SASS cheatsheet - so I summarized
+the main features of SASS in a SASS file.
 
 ## Variables
 
@@ -22,7 +23,8 @@ Sass allows you to declare variables that can be used through the stylesheet.
 
 Variables begin with `$` and are declared just like properties.
 
-They can have any value that's allowed for a CSS property, such as colors, numbers (with units), or text.
+They can have any value that's allowed for a CSS property, such as colors, numbers
+(with units), or text.
 
 ```scss
 $defaultWindowSize: 960px;
@@ -62,7 +64,8 @@ a {
 
 ## Interpolation
 
-Variables can be used for more than just property values. You can use `\#{variable}` to insert them into property names or selectors.
+Variables can be used for more than just property values. You can use `\#{variable}`
+to insert them into property names or selectors.
 
 ```scss
 $wk: -webkit-;
@@ -74,9 +77,11 @@ $wk: -webkit-;
 
 ## Mixins
 
-Mixins allow re-use of styles without having to copy and paste them or move them into a non-semantic class.
+Mixins allow re-use of styles without having to copy and paste them or move them
+into a non-semantic class.
 
-Mixins are defined using the `@mixin` directive, which takes a block of styles that can then be included in another selector using the `@include` directive.
+Mixins are defined using the `@mixin` directive, which takes a block of styles
+that can then be included in another selector using the `@include` directive.
 
 ```scss
 @mixin default-box {
@@ -116,7 +121,8 @@ footer{ @include default-box(#999, inline-block, 5px); }
 
 ## Selector Inheritance
 
-Sass, using the `@extend` directive, can tell one selector to inherit all the styles of another without duplicating the CSS properties.
+Sass, using the `@extend` directive, can tell one selector to inherit all the
+styles of another without duplicating the CSS properties.
 
 ```scss
 .error {
@@ -132,8 +138,9 @@ Sass, using the `@extend` directive, can tell one selector to inherit all the st
 
 ## Import stylesheet
 
-CSS has an `@import` directive that allows you to break your styles up into multiple stylesheets.
-Any style rule, variables or mixins defined in imported files are available to the files that import them.
+CSS has an `@import` directive that allows you to break your styles up into
+multiple stylesheets. Any style rule, variables or mixins defined in imported
+files are available to the files that import them.
 
 ```scss
 @import "partials/_vars";
@@ -157,7 +164,9 @@ or to watch all the files in a directory:
 sass --watch stylesheets/sass:stylesheets/compiled
 ```
 
-If you don't want to mess your mind with this different style of writing CSS, you could still continue to write your classic CSS rules in a .scss file and use the SASS engine to get the correspondent CSS. Why?
+If you don't want to mess your mind with this different style of writing CSS,
+you could still continue to write your classic CSS rules in a .scss file and use
+the SASS engine to get the correspondent CSS. Why?
 
 Because, by setting the right options, you could use the SASS engine to minimize your CSS.
 
@@ -166,4 +175,6 @@ sass --style {nested | expanded | compact | compressed}
   --watch path/sass:path/compiled
 ```
 
-I leave to you the test of how the use of these different keywords changes the output. If you have not much time, you could find this answer, and much more, on the official [reference page](http://sass-lang.com/documentation/file.SASS_REFERENCE.html "SASS Reference").
+I leave to you the test of how the use of these different keywords changes the output.
+If you have not much time, you could find this answer, and much more, on the official
+[reference page](http://sass-lang.com/documentation/file.SASS_REFERENCE.html "SASS Reference").

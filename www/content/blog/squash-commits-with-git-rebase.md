@@ -15,8 +15,9 @@ priority: 0.7
 That's one thing I've just recently learned, and I'm writing down here for future reference.
 
 Git's `rebase` command permits to change the history of a git repository.
-
-Note that this is safe to do only for commits that haven't already been shared to the team you are working with.
+<br/>
+Note that this is safe to do only for commits that haven't already been shared
+to the team you are working with.
 
 ## Why is it useful?
 
@@ -32,7 +33,9 @@ $ git hist
 
 I'm so proud of myself... I've just pushed the best commit in the whole history of the Universe!
 
-I should absolutely show someone else my greatness, so it's time for a code review... and it turns out that the commit was not so perfect as I thought. However the fix is easy, and so we arrive here:
+I should absolutely show someone else my greatness, so it's time for a code review...
+and it turns out that the commit was not so perfect as I thought. 
+However the fix is easy, and so we arrive here:
 
 ```bash
 bruno ~/git/hello-git
@@ -55,7 +58,8 @@ bruno ~/git/hello-git
 $ git rebase -i HEAD~2
 ```
 
-This cause your default Git editor - on my macbook pro, it is *nano* - to show up with the following content:
+This cause your default Git editor - on my macbook pro, it is *nano* - to show up
+with the following content:
 
 ```bash
 pick 5e170e0 The most perfect commit in the history of the Universe
@@ -80,7 +84,8 @@ pick bd2b8f4 Ops, I've forgot something... Fixed now
 # Note that empty commits are commented out
 ```
 
-We're seeing only the last two commits cause I expressly requested to rebase only the last two (remember the `HEAD~2`).
+We're seeing only the last two commits cause I expressly requested to rebase only
+the last two (remember the `HEAD~2`).
 
 The comments make pretty clear how to proceed; so I change the content.
 
@@ -109,8 +114,10 @@ $ git hist
 * a48ca6d 2016-10-26 | Init repo [brunoscopelliti]
 ```
 
-You may have noted that in the process the hash of the commit with the message *The most perfect commit in the history of the Universe* has changed.
-That's because this process actually generates brand new commits with completely different IDs than the old commits, and leaves the old commits where they were.
+You may have noted that in the process the hash of the commit with the message
+*The most perfect commit in the history of the Universe* has changed.
+That's because this process actually generates brand new commits with completely
+different IDs than the old commits, and leaves the old commits where they were.
 
 ```bash
 bruno ~/git/hello-git
@@ -138,4 +145,6 @@ You can fix this with 'git rebase --edit-todo' and then run 'git rebase --contin
 Or you can abort the rebase with 'git rebase --abort'.
 ```
 
-However Git is also so kind that suggest how to solve the issue; `git rebase --edit-todo` will reopen the editor and give you a chance to review , then `git rebase --continue` will restart the rebase process.
+However Git is also so kind that suggest how to solve the issue:
+<br/>`git rebase --edit-todo` will reopen the editor and give you a chance to review,
+then `git rebase --continue` will restart the rebase process.

@@ -12,7 +12,10 @@ priority: 0.7
 
 I'm back writing about client side validation in an AngularJS application.
 
-Lately, I had to work with a form created dynamically on the basis of a JSON response, that I received from the server. In this case the approach is a bit different from the one I discussed in my first post about [form validation with AngularJS]({{< relref path=form-validation-the-angularjs-way.md" >}} 'Form Validation: The AngularJS Way').
+Lately, I had to work with a form created dynamically on the basis of a JSON response, that
+I received from the server. In this case the approach is a bit different from the one I discussed
+in my first post about
+[form validation with AngularJS]({{< relref path=form-validation-the-angularjs-way.md" >}} 'Form Validation: The AngularJS Way').
 
 Consider this markup:
 
@@ -41,10 +44,12 @@ FormController.$inject = ["$scope"];
 ```
 
 But sadly the validation didn't work.
+<br/>
+The reason of this failure, is that currently it's not possible to dynamically generate
+a name of an input.
 
-The reason of this failure, is that currently it's not possible to dynamically generate a name of an input.
-
-To work around this issue there are two different alternatives: write a custom directive or use the builtin [ngForm](https://docs.angularjs.org/api/ng/directive/ngForm 'AngularJS api: ngForm') directive, to create an inner form; I chose this last one:
+To work around this issue there are two different alternatives: write a custom directive
+or use the builtin [ngForm](https://docs.angularjs.org/api/ng/directive/ngForm 'AngularJS api: ngForm') directive, to create an inner form; I chose this last one:
 
 ```html
 <form name="sf" ng-controller="FormController" novalidate>

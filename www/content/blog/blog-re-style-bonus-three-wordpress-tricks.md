@@ -12,13 +12,17 @@ priority: 0.7
 
 Some weekends ago, I saved few of my free time to work on my blog.
 
-The most evident change is that now for my blog, I'm using the [Ryu](http://theme.wordpress.com/themes/ryu/ "WordPress Ryu theme") theme, by the guys of Automattic.
+The most evident change is that now for my blog, I'm using the
+[Ryu](http://theme.wordpress.com/themes/ryu/ "WordPress Ryu theme") theme, by
+the guys of Automattic.
 
-It had been a long time since the last time I had worked with WordPress, and I really appreciated it.
-So today I want to share three useful tricks to customize your WordPress implementation.
+It had been a long time since the last time I had worked with WordPress, and I really
+appreciated it. So today I want to share three useful tricks to customize your
+WordPress implementation.
 
-One of the characteristics of this blog even before the restyle, was that, even if you are logged in WordPress, the top toolbar is not displayed.
-There are several possible hacks to achieve this behaviour, but my favorite is the following:
+One of the characteristics of this blog even before the restyle, was that, even if
+you are logged in WordPress, the top toolbar is not displayed. There are several
+possible hacks to achieve this behaviour, but my favorite is the following:
 
 ## Don't render WordPress toolbar
 
@@ -27,7 +31,8 @@ There are several possible hacks to achieve this behaviour, but my favorite is t
 add_filter("show_admin_bar", "__return_false");
 ```
 
-The previous code snippet (and even the following) are meant to be added to the theme function file, that is the function.php file.
+The previous code snippet (and even the following) are meant to be added to the theme
+function file, that is the function.php file.
 
 ## Change excerpt length
 
@@ -55,4 +60,5 @@ function set_excerpt_read_more($more) {
 add_filter("excerpt_more", "set_excerpt_read_more");
 ```
 
-As you can see all the example of this post are using the `add_filter` function; if you want to know more about it, check out the [filter documentation](http://codex.wordpress.org/Plugin_API/Filter_Reference "WordPress docs: Filters").
+As you can see all the example of this post are using the `add_filter` function;
+if you want to know more about it, check out the [filter documentation](http://codex.wordpress.org/Plugin_API/Filter_Reference "WordPress docs: Filters").

@@ -11,16 +11,22 @@ priority: 0.7
 ---
 
 Last weekend I finally found few time to give a try to `Grunt`.
+<br/>
+I am surprised by how easy is to get started, and I am curious to experiment
+the benefits which its usage can bring in a real world app.
 
-I am surprised by how easy is to get started, and I am curious to experiment the benefits which its usage can bring in a real world app.
+After some really trivial tests, my first serious attempt to create something useful with Grunt
+has been to create an automatic process to minify and then concatenate different JavaScript files;
+this post will collect a few notes about what I learned while I was trying to set up this process.
 
-After some really trivial tests, my first serious attempt to create something useful with Grunt has been to create an automatic process to minify and then concatenate different javascript files; this post will collect a few notes about what I learned while I was trying to set up this process.
-
-Note: the [docs on grunt](http://gruntjs.com/getting-started "Getting started with Grunt") are really the best resource from where to start your journey with Grunt. I'm writing this post to have a fast and more focused reference in the future.
+Note: the [docs on grunt](http://gruntjs.com/getting-started "Getting started with Grunt")
+are really the best resource from where to start your journey with Grunt. I'm writing this
+post to have a fast and more focused reference in the future.
 
 ## Prerequisites
 
-The only prerequisite is to have installed at least the version 0.8.0 of [nodejs](http://nodejs.org/ "Nodejs"). When nodejs is installed, it's possible to install the grunt command line interface via npm:
+The only prerequisite is to have installed at least the version 0.8.0 of [Nodejs](http://nodejs.org/ "Nodejs").
+When nodejs is installed, it's possible to install the grunt command line interface via npm:
 
 ```bash
 $:> npm uninstall -g grunt
@@ -32,11 +38,13 @@ $:> npm install -g grunt-cli
 
 ## Setup the environment
 
-Set up a project, to be ready to work with Grunt, just requires to add two files, `package.json` and `Gruntfile.js`, to the main root of the project itself.
+Set up a project, to be ready to work with Grunt, just requires to add two files,
+`package.json` and `Gruntfile.js`, to the main root of the project itself.
 
 ## package.json
 
-The package.json file should contain some data about the project (for example the name, the version etc.), and more important, the list of the Grunt plugins that will be used.
+The package.json file should contain some data about the project (for example the name,
+the version etc.), and more important, the list of the Grunt plugins that will be used.
 
 The following is my first package.json file:
 
@@ -57,7 +65,9 @@ The following is my first package.json file:
 }
 ```
 
-Before the plugins can be used, it's necessary to install all the plugins which will be used by Grunt. This could be easily achieved by running the `npm install` command in the root folder of the project.
+Before the plugins can be used, it's necessary to install all the plugins which will be used
+by Grunt. This could be easily achieved by running the `npm install` command in the root
+folder of the project.
 
 ## Gruntfile.js
 
@@ -90,7 +100,8 @@ module.exports = function (grunt) {
 };
 ```
 
-At this point is already possible to execute Grunt, but this will just produce an error because there are not configuration options specified for the uglify task.
+At this point is already possible to execute Grunt, but this will just produce an error
+because there are not configuration options specified for the uglify task.
 
 ## Task configuration
 
@@ -125,13 +136,16 @@ uglify: {
 
 The structure is composed by an `options` property, and by one, or more, target properties.
 
-* options: contains the settings valid at task level.<br/>Task level settings can be overwritten by target level settings.<br/>The available options depends on the specific grunt plugin.
+* options: contains the settings valid at task level.<br/>Task level settings can be overwritten
+by target level settings.<br/>The available options depends on the specific grunt plugin.
 
-* target(s): allows to run a task with different configuration.<br/>Each task can have more than a target.
+* target(s): allows to run a task with different configuration.<br/>Each task can have more
+than a target.
 
 ## Run Grunt
 
-Execute Grunt is a really straightforward operation; from the root folder of the project type in the shell:
+Execute Grunt is a really straightforward operation; from the root folder of the project type
+in the shell:
 
 ```bash
 $:> grunt
@@ -140,7 +154,8 @@ $:> grunt
 
 In this case all the tasks registered as default will be executed.
 
-It's possible even to execute only specific task or subgroup of tasks; even in this case the syntax is really simple:
+It's possible even to execute only specific task or subgroup of tasks; even in this case
+the syntax is really simple:
 
 ```bash
 $:> grunt uglify
@@ -158,6 +173,8 @@ $:> grunt myTasks
 
 ## Conclusive notes
 
-Learning all this was fun, pleasant (thanks to the documentation), and did not require more than a couples of hours: really a great investment, if you consider how time consuming are some repetitive tasks.
+Learning all this was fun, pleasant (thanks to the documentation), and did not require more
+than a couples of hours: really a great investment, if you consider how time consuming are
+some repetitive tasks.
 
 Grunt is definitely the way to go... and in the next weeks I will go deeper with its usage.

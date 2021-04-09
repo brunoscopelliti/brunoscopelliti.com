@@ -12,13 +12,17 @@ priority: 0.7
 
 I already wrote about [form validation]({{< relref path=form-validation-the-angularjs-way.md" >}} 'Form Validation in AngularJS') some time ago.
 
-In that occasion I had the opportunity to show you how much powerful is the native form validation system of AngularJS. But no matter how powerful, of course, it can not cover all possible scenarios. For example we all are used to fill two times the password fields during the registration on a new website.
+In that occasion I had the opportunity to show you how much powerful is the
+native form validation system of AngularJS. But no matter how powerful, of course,
+it can not cover all possible scenarios. For example we all are used to fill two times
+the password fields during the registration on a new website.
 
-Currently AngularJS has not a native method to check, during the form validation, if the user entered two different passwords.
+Currently AngularJS has not a native method to check, during the form validation,
+if the user entered two different passwords; but if you've read the previous article,
+you also know that validation system of AngularJS could even be extended with custom directives.
 
-If you've read the previous article, you also know that validation system of AngularJS could even be extended with custom directives.
-
-In this post I will show the AngularJS directive that I realized to check if the passwords typed by the user have the same value.
+In this post I will show the AngularJS directive that I realized to check if the passwords typed
+by the user have the same value.
 
 ## Live demo
 
@@ -35,7 +39,9 @@ The first thing to note is in the markup the use of the `pwCheck` directive:
 <input type="password" id="pw2" name="pw2" ng-model="pw2" ng-required pw-check="pw1" />
 ```
 
-It expects to have as parameter the id of another input of type password, with which compare the value of the field to which is applied. The comparison is specified inside the code of the directive:
+It expects to have as parameter the id of another input of type password, with which compare
+the value of the field to which is applied.
+The comparison is specified inside the code of the directive:
 
 ```js
 angular.module("myApp.directives", [])
@@ -54,7 +60,8 @@ angular.module("myApp.directives", [])
   }]);
 ```
 
-On the basis of the result of the comparison, the api method [$setValidity()](https://docs.angularjs.org/api/ng/type/ngModel.NgModelController#$setValidity 'AngularJS api: $setValidity') is used to set the validation form status as passed or failed.
+On the basis of the result of the comparison, the api method
+[$setValidity()](https://docs.angularjs.org/api/ng/type/ngModel.NgModelController#$setValidity 'AngularJS api: $setValidity') is used to set the validation form status as passed or failed.
 
 This step allows to use the new custom error key `pwmatch` to show/hide a custom error message:
 

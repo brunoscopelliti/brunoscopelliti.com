@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "hugo server -D -p 3000 --source ./www",
+    "build:post-card-image": "node tools/image",
     "publish": "hugo --source ./www && cp -R ./www/public/* ../brunoscopelliti.github.io"
   },
   "repository": {

@@ -12,13 +12,17 @@ priority: 0.7
 
 {{% youtube id="uD6Okha_Yj0" %}}
 
-A couple of weeks ago David East ([@_davideast](https://twitter.com/_davideast "David East's Twitter profile")) gave a talk about app development with AngularJS 2.
+A couple of weeks ago David East
+([@_davideast](https://twitter.com/_davideast "David East's Twitter profile"))
+gave a talk about app development with AngularJS 2.
 
-The presentation was followed by a really interesting QAs session, with the participation of Miško Hevery, and Igor Minar.
+The presentation was followed by a really interesting QAs session, with the participation
+of Miško Hevery, and Igor Minar.
 
 This is what seemed most interesting to me:
 
-* AngularJS 2 is built on top of web standards; so no more AngularJS module, but ECMAScript 2015 module, web components and so on...
+* AngularJS 2 is built on top of web standards; so no more AngularJS module,
+but ECMAScript 2015 module, web components and so on...
 
 * There won't be anymore the configuration phase
 
@@ -26,7 +30,8 @@ This is what seemed most interesting to me:
 
 * Directives will undergo a real boost:
 
-  + possibility to bind to native DOM element's properties; for example `ng-show`, `ng-hide` are replaced by binding directly to html element's `hidden` property.
+  + possibility to bind to native DOM element's properties; for example `ng-show`,
+  `ng-hide` are replaced by binding directly to html element's `hidden` property.
 
   + web components (with fallback)
 

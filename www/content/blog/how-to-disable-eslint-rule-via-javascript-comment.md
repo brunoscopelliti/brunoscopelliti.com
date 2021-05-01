@@ -5,10 +5,10 @@ aliases:
 preview: "I hope writing it down helps me remember how to disable an ESLint rule via comment."
 date: 2016-09-16T09:00:00+01:00
 meta_description: "Disable ESLint rule via JavaScript comment"
-categories: ["Tools", "ESlint", "memo"]
+categories: ["Tools", "ESLint", "memo"]
 layout: "post"
 changefreq: "yearly"
-lastmod: 2021-01-01T09:00:00+01:00
+lastmod: 2021-04-26T21:10:00+01:00
 priority: 0.7
 ---
 
@@ -25,4 +25,4 @@ alert("foo"); // eslint-disable-line no-alert
 ```
 
 It's also possible to omit the name of the rule, and in this case lint is turned off for
-that specific line.
+the entire line.

@@ -75,5 +75,9 @@
         </p>
       </div>
     </footer>
+
+    {{ if eq hugo.Environment "production" }}
+    <script data-goatcounter="https://bscop.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+    {{ end }}
   </body>
 </html>

@@ -14,7 +14,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    {{ $stylesheet := resources.Get "scss/style.scss" | toCSS (dict "targetPath" "css/style.css" "outputStyle" "compressed") | fingerprint }}
+    {{ $stylesheet := resources.Get "scss/blog.scss" | toCSS (dict "targetPath" "css/blog.css" "outputStyle" "compressed") | fingerprint }}
     <link rel="stylesheet" href="{{ $stylesheet.RelPermalink }}" integrity="{{ $stylesheet.Data.Integrity }}">
 
     {{- block "twitter-meta" . }}

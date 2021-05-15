@@ -33,7 +33,7 @@ h2 {
 }
 
 h3 {
-  @include text(16px, $weightNormal);
+  @include text(16px, $weightMedium);
 }
 
 ol, ul {
@@ -175,7 +175,7 @@ section:not(:last-of-type) {
 .tags {
   display: flex;
   flex-wrap: wrap;
-  margin: 24px 0 0;
+  margin: 12px 0 0;
 }
 
 .tags > span {
@@ -247,6 +247,14 @@ $iconMarginRight: 12px;
   border-radius: 3px;
   margin: 18px 0 0;
   padding: 1rem;
+
+  h3 {
+    font-weight: $weightNormal;
+  }
+
+  .tags {
+    margin-top: 24px;
+  }
 }
 
 .highlight-intro-label {

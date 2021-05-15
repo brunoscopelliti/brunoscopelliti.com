@@ -146,15 +146,25 @@ section:not(:last-of-type) {
 .links {
   display: flex;
   flex-direction: column;
-  gap: 6px;
   margin: 0;
   margin-top: 1rem;
+
+  li {
+    margin: 0;
+  }
+
+  li:not(:last-of-type) {
+    margin-bottom: 8px;
+  }
 }
 
 @media (min-width: $bksize) {
   .links {
     flex-direction: row;
-    gap: 24px;
+
+    li:not(:last-of-type) {
+      margin-right: 24px;
+    }
   }
 }
 
@@ -166,7 +176,6 @@ section:not(:last-of-type) {
   display: flex;
   flex-wrap: wrap;
   margin: 24px 0 0;
-  gap: 8px;
 }
 
 .tags > span {
@@ -177,6 +186,8 @@ section:not(:last-of-type) {
 
   background: #dedede;
   color: #222;
+
+  margin: 0 8px 8px 0;
 }
 
 /**

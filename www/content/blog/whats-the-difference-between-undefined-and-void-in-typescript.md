@@ -1,19 +1,18 @@
 ---
-draft: true
 title: "What's the difference between undefined and void in TypeScript?"
 preview: "I didn't know, but I learned it - and you could learn it too ..."
-date: 2021-05-15T15:24:46+01:00
+date: 2021-05-17T21:42:46+01:00
 meta_description: "TypeScript difference undefined vs void"
 categories: "TypeScript"
 layout: "post"
 changefreq: "yearly"
-lastmod: 2021-05-15T15:24:46+01:00
+lastmod: 2021-05-17T21:42:46+01:00
 priority: 0.7
 ---
 
 If I have to describe my relationship with TypeScript in one word, I'll say it is *complicated*.
 
-To put it shortly, I don't think it's worth the additional work, and headaches it causes -
+To put it shortly, I think most of the time it's not worth the additional work, and headaches it causes -
 especially considering that in my usual setup I've unit test with high coverage,
 and meaningful JSDoc annotations.\
 If you disagree - don't worry, it's fine 🙂

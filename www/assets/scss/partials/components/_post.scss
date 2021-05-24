@@ -48,6 +48,11 @@ article.post .post-body {
       @include text-small($weightLight);
     }
   }
+
+  .twitter-tweet {
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 article.post .post-body {

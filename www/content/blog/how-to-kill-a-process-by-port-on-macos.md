@@ -5,7 +5,7 @@ date: 2021-04-25T15:18:21+01:00
 meta_description: "How to kill a process on MacOS, Unix-like"
 categories: ["Tools", "memo"]
 changefreq: "yearly"
-lastmod: 2021-04-25T15:18:21+01:00
+lastmod: 2021-24-10T08:09:42+01:00
 priority: 0.7
 layout: post
 ---
@@ -16,7 +16,7 @@ Below you can read the *magic spell* to kill a process in Unix-like system, runn
 specific port.
 
 ```bash
-lsof -nti: | xargs kill -9
+lsof -nti:<PORT> | xargs kill -9
 ```
 
 Copy, and replace `<PORT>` with the port number.

@@ -70,11 +70,15 @@
           {{- partial "contact-form.html" . -}}
           {{- partial "socials.html" (dict "iconColor" "#fff" "iconSize" "32px") -}}
         </div>
-        <p class="colophon">2013 ~ {{ now.Format "2006"}} {{ .Site.Title }}
+        <p class="colophon">2013 ~ <span data-js="year">{{ now.Format "2006"}}</span> {{ .Site.Title }}
           <br/>Built with <a href="https://gohugo.io/" title="Hugo" target="_blank" rel="noopener noreferrer">Hugo</a>.
         </p>
       </div>
     </footer>
+    {{ $yearController := resources.Get "js/year.js" | js.Build (dict "minify" true "target" "es5") }}
+    <script>
+      {{ $yearController.Content | safeJS }}
+    </script>
 
     {{ if eq hugo.Environment "production" }}
     <script data-goatcounter="https://bscop.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>

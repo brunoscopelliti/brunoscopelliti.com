@@ -35,7 +35,7 @@ This doesn't necessarily mean it will be `undefined`.\
 Why is this important? Consider an example.
 
 ```ts
-const readFileTitle = (src : string, callback : (title : string) => undefined) {
+const readFileTitle = (src : string, callback : (title : string) => undefined) => {
 };
 ```
 
@@ -48,7 +48,7 @@ Imagine now we're using this function to retrieve the titles of a series of file
 const files = ["./file1.txt", "./file2.txt"];
 const titles = [];
 for (const file of files) {
-    readTitle(file, (title) => titles.push(title));
+    readFileTitle(file, (title) => titles.push(title));
 }
 ```
 

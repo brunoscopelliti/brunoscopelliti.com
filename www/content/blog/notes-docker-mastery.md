@@ -1,8 +1,8 @@
 ---
-title: "Notes on “Docker Mastery: ..”"
+title: "Notes on “Docker Mastery: …”"
 preview: "This post collects my notes while following “Docker Mastery: with Kubernetes +Swarm from a Docker Captain” course, by Bret Fisher on Udemy."
 date: 2023-02-25T07:00:00+01:00
-meta_description: "My notes on Udemy Course: 'Docker Mastery: with Kubernetes +Swarm from a Docker Captain'"
+meta_description: "My notes on Udemy Course: “Docker Mastery: with Kubernetes +Swarm from a Docker Captain”"
 categories: ["memo", "docker"]
 changefreq: "yearly"
 lastmod: 2023-02-25T07:00:00+01:00
@@ -59,6 +59,8 @@ docker container logs <container name>
 ```bash
 docker container exec -it <container name> <command>
 ```
+
+You can use `docker container run` if you need to startup the container.
 
 ### Stop running container
 
@@ -150,7 +152,7 @@ docker volume ls
 
 ### Bind Mounts
 
-We can still user `-v` to create Bind Mounts, altough `--mounts` option exists ([see differences](https://docs.docker.com/storage/bind-mounts/#choose-the--v-or---mount-flag)).
+We can still use `-v` to create Bind Mounts, altough `--mounts` option exists ([see differences](https://docs.docker.com/storage/bind-mounts/#choose-the--v-or---mount-flag)).
 
 ```bash
 docker container run -d --name ngnix -p 80:80 -v $(pwd):/usr/share/nginx/html nginx

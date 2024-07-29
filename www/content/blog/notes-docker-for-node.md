@@ -1,8 +1,8 @@
 ---
-title: "Notes on “Docker for Note.js Projects …”"
-preview: "This post collects my notes while following “Docker for Note.js Projects from a Docker Captain” course, by Bret Fisher on Udemy."
+title: "Notes on “Docker for Node.js Projects …”"
+preview: "This post collects my notes while following “Docker for Node.js Projects from a Docker Captain” course, by Bret Fisher on Udemy."
 date: 2023-02-25T07:00:00+01:00
-meta_description: "My notes on Udemy Course: “Docker for Note.js Projects from a Docker Captain”"
+meta_description: "My notes on Udemy Course: “Docker for Node.js Projects from a Docker Captain”"
 categories: ["memo", "docker", "node.js"]
 changefreq: "yearly"
 lastmod: 2023-02-25T07:00:00+01:00
@@ -10,7 +10,7 @@ priority: 0.7
 layout: post
 ---
 
-Reference to the course: [Docker for Note.js Projects from a Docker Captain](https://www.udemy.com/course/docker-mastery-for-nodejs/)
+Reference to the course: [Docker for Node.js Projects from a Docker Captain](https://www.udemy.com/course/docker-mastery-for-nodejs/)
 
 I will update this post while continuing advance through the course.<br/>
 Last updated: 25 February 2023.
